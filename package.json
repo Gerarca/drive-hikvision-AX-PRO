@@ -1,0 +1,23 @@
+{
+  "name": "siera-driver",
+  "version": "1.0.0",
+  "description": "Driver for siera IP cameras",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/leon8a/siera-driver.git"
+  },
+  "keywords": [],
+  "author": "Netsocs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/leon8a/siera-driver/issues"
+  },
+  "homepage": "https://gitlab.com/leon8a/siera-driver#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
