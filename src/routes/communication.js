@@ -1,0 +1,32 @@
+const { Router } = require('express');
+const router = Router();
+const communication = require("../controller/communication.controller");
+
+router.get("/getadminaccess", communication.GetWiredNetworkAdminAcces);
+router.put("/setadminaccess", communication.PutWiredNetworkAdminAcces);
+router.get("/getwlan", communication.GetWLAN);
+router.put("/setwlan", communication.SetWLAN);
+router.get("/getwireless", communication.GetWireless);
+router.get("/getwirelessserver", communication.GetWirelessServer);
+router.get("/getaccesspointlist", communication.GetAccessPointList);
+router.put("/setwireless", communication.SetWireless);
+router.put("/setarc1", communication.SetARC1);
+router.put("/setarc2", communication.SetARC2);
+router.get("/getarc", communication.GetAlarmRecivingCenter);
+router.get("/getehomelist", communication.GetEHomeList);
+router.get("/getivms", communication.GetEventTypeNotificationIVMS);
+router.put("/setivms", communication.PutEventTypeNotificationIVMS);
+router.get("/getetnalarm/:id", communication.GetETNAlarmReceivingCenter);
+router.put("/setetnalarm/:id", communication.PutETNAlarmReceivingCenter);
+router.get("/getetnapp", communication.GetETNAPP);
+router.put("/setetnapp", communication.PutETNAPP);
+router.get("/getcoultservice", communication.GetCouldService);
+router.put("/setcouldservice", communication.SetCouldService);
+router.get("/getnatupnp", communication.GetNATUpnp);
+router.get("/getnatupnpstatus", communication.GetNATUPnpStatus);
+router.get("/getnatadminaccess", communication.GetNATAdminAccess);
+router.put("/setnatupnp", communication.SetNATUPnp);
+router.get("/getftp", communication.GetFTP);
+router.put("/setftp", communication.SetFTP);
+
+module.exports = router;

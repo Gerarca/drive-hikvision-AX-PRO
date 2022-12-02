@@ -1,26 +1,35 @@
 const express = require('express');
-const morgan = require('morgan');
-
+const { Server } = require("socket.io");
+const bodyParse = require('body-parser');
+const morgan  = require('morgan');
+const exphbs  = require('express-handlebars');
+const path    = require('path');
+require('dotenv').config();
 
 // Intializations
 const app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 // Settings
 app.set('port', process.env.PORT || 3000);
-//app.set('views', path.join(__dirname, 'views'));
+app.set('json spaces', 2);
+
 
 // Middlewares
+//app.use(bodyParse.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
+app.use(express.json());
 
 // Global variables
 
 // Routes
-app.use(require('./routes/'));
-
-// Public
-//app.use(express.static(path.join(__dirname, 'public')));
+//app.use(require('./routes'));
+app.use("/api", require("./routes/index"));
 
 // Starting
 app.listen(app.get('port'), () => {
   console.log('Server is in port', app.get('port'));
 });
+
