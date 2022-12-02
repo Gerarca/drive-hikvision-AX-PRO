@@ -1,5 +1,3 @@
-const WebSocket = require('ws');
-
 const { URLDevice, 
         URLSetOneZone, 
         URLSetDetectorSetting,
