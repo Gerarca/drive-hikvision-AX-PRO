@@ -1,0 +1,326 @@
+generator client {
+  provider      = "prisma-client-js"
+  output        = "./generated/netsocsx"
+  binaryTargets = ["native"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("APP_DATABASE_URL_BASE")
+}
+
+model controladores {
+  IDControlador       Int       @id @default(autoincrement()) @db.UnsignedInt
+  IDEdificio          Int?      @db.UnsignedSmallInt
+  NombreControlador   String?   @db.VarChar(32)
+  Descripcion         String?   @db.VarChar(64)
+  IDIcono             Int?      @db.UnsignedInt
+  TipoControlador     Int?      @db.UnsignedSmallInt
+  Prioridad           String?   @db.VarChar(32)
+  Certificado         String?   @db.MediumText
+  PuertoSSL           Int?      @db.UnsignedSmallInt
+  PuertoNoSSL         Int?      @db.UnsignedSmallInt
+  PuertoMantenimiento Int?      @db.UnsignedSmallInt
+  PuertoConexionSC    Int?      @db.UnsignedSmallInt
+  PuertoConexionCC    Int?      @db.UnsignedSmallInt
+  SOAP                String?   @db.VarChar(255)
+  Socket              String?   @db.VarChar(255)
+  API                 String?   @db.VarChar(255)
+  Sincroniza          String?   @db.VarChar(2)
+  DireccionAIPV4      String?   @db.VarChar(15)
+  DireccionBIPv4      String?   @db.VarChar(15)
+  DireccionAIPV6      String?   @db.VarChar(40)
+  DireccionBIPv6      String?   @db.VarChar(40)
+  DireccionPublica1   String?   @db.VarChar(40)
+  DireccionPublica2   String?   @db.VarChar(40)
+  Localizacion        String?   @db.VarChar(64)
+  Latitud             Decimal?  @db.Decimal(10, 8)
+  Longitud            Decimal?  @db.Decimal(11, 8)
+  Estatus             Int?      @db.UnsignedTinyInt
+  FechaCreado         DateTime? @db.Timestamp(0)
+  FechaDesactivado    DateTime? @db.Timestamp(0)
+}
+
+model dispositivos {
+  IDDispositivo       Int       @id @default(autoincrement()) @db.UnsignedInt
+  IDSubsistema        Int?      @db.UnsignedInt
+  IDTipoFamilia       Int?      @db.UnsignedInt
+  IDFamilia           Int?      @db.UnsignedInt
+  IDTipoDispositivo   Int?      @db.UnsignedInt
+  IDGateway           Int?      @db.UnsignedInt
+  IDControlador       Int?
+  IDModelo            Int?
+  IDEdificio          Int?      @db.UnsignedInt
+  IDZona              Int?      @db.UnsignedInt
+  IDPuerta            Int?      @db.UnsignedInt
+  NombreDispositivo   String?   @db.VarChar(32)
+  Descripcion         String?   @db.VarChar(64)
+  IDIconografia       Int?      @db.UnsignedInt
+  IDMenuPropio        Int?      @db.UnsignedInt
+  Estatus             String?   @db.VarChar(16)
+  Sentidos            String?   @db.VarChar(16)
+  Ignorado            String?   @db.VarChar(2)
+  Enrolamiento        String?   @db.VarChar(2)
+  Latitud             Decimal?  @db.Decimal(10, 8)
+  Longitud            Decimal?  @db.Decimal(11, 8)
+  DireccionGPS        String?   @db.VarChar(255)
+  GeometriaGPS        String?   @db.VarChar(255)
+  IDTipoEvento        Int?      @db.UnsignedInt
+  IDModeloElemento    Int?      @db.UnsignedInt
+  FechaCreacion       DateTime? @db.Timestamp(0)
+  FechaDesactivacion  DateTime? @db.Timestamp(0)
+  FechaEliminacion    DateTime? @db.Timestamp(0)
+  Parametros          String?   @db.MediumText
+  Certificado         String?   @db.MediumText
+  PuertoSSL           Int?      @db.UnsignedSmallInt
+  PuertoNoSSL         Int?      @db.UnsignedSmallInt
+  PuertoMantenimiento Int?      @db.UnsignedSmallInt
+  PuertoConexionSC    Int?      @db.UnsignedSmallInt
+  PuertoConexionCC    Int?      @db.UnsignedSmallInt
+  SOAP                String?   @db.MediumText
+  Socket              String?   @db.MediumText
+  API                 String?   @db.MediumText
+  Sincroniza          String?   @db.VarChar(2)
+  DireccionAIPV4      String?   @db.VarChar(255)
+  DireccionBIPv4      String?   @db.VarChar(255)
+  DireccionAIPV6      String?   @db.VarChar(255)
+  DireccionBIPv6      String?   @db.VarChar(255)
+  DireccionPublica1   String?   @db.VarChar(255)
+  DireccionPublica2   String?   @db.VarChar(255)
+  Serial              String?   @db.VarChar(255)
+  user                String?   @db.VarChar(255)
+  password            String?   @db.VarChar(255)
+  IDManual            String?   @db.VarChar(45)
+}
+
+model gateway {
+  IDGateway              Int       @id @default(autoincrement()) @db.UnsignedInt
+  IDTipoGateway          Int?      @db.UnsignedInt
+  IDControlador          Int?      @db.UnsignedInt
+  IDEdificio             Int?      @db.UnsignedSmallInt
+  IDIdentificadorExterno String?   @db.VarChar(255)
+  IDTipoEvento           Int?      @db.UnsignedInt
+  IDGrupoMetodo          Int?      @db.UnsignedInt
+  NAbonado               String?   @db.VarChar(8)
+  NombreGateway          String?   @db.VarChar(32)
+  Descripcion            String?   @db.VarChar(4000)
+  IDIcono                Int?      @db.UnsignedInt
+  ValorEstado            Bytes?    @db.MediumBlob
+  Parametros             String?   @db.VarChar(4000)
+  EstadoOnOff            String?   @db.VarChar(2)
+  Latitud                Decimal?  @db.Decimal(10, 8)
+  Longitud               Decimal?  @db.Decimal(11, 8)
+  SerialGPS              String?   @db.VarChar(1000)
+  GeometriaGPS           String?   @db.VarChar(4000)
+  FechaCreado            DateTime? @db.Timestamp(0)
+  FechaDesactivado       DateTime? @db.Timestamp(0)
+  Certificado            String?   @db.MediumText
+  PuertoSSL              Int?      @db.UnsignedSmallInt
+  PuertoNoSSL            Int?      @db.UnsignedSmallInt
+  PuertoMantenimiento    Int?      @db.UnsignedSmallInt
+  PuertoConexionSC       Int?      @db.UnsignedSmallInt
+  PuertoConexionCC       Int?      @db.UnsignedSmallInt
+  SOAP                   String?   @db.MediumText
+  Socket                 String?   @db.MediumText
+  API                    String?   @db.MediumText
+  Sincroniza             String?   @db.VarChar(2)
+  DireccionAIPV4         String?   @db.VarChar(15)
+  DireccionBIPv4         String?   @db.VarChar(15)
+  DireccionAIPV6         String?   @db.VarChar(40)
+  DireccionBIPv6         String?   @db.VarChar(40)
+  DireccionPublica1      String?   @db.VarChar(40)
+  DireccionPublica2      String?   @db.VarChar(40)
+  user                   String?   @db.VarChar(255)
+  password               String?   @db.VarChar(255)
+  Serial                 String?   @db.VarChar(255)
+}
+
+model gruposdispositivos {
+  IDGrupoDispositivo     Int     @id @default(autoincrement()) @db.UnsignedInt
+  NombreGrupoDispositivo String? @db.VarChar(32)
+  Identificador          String? @db.VarChar(32)
+  Descripcion            String? @db.VarChar(128)
+}
+
+model inventariocatastro {
+  IDEntidadInventario          Int       @id @default(autoincrement()) @db.UnsignedInt
+  IDTipoEntidadInventario      Int?      @db.UnsignedInt
+  IDCategoriaEntidadInventario Int?      @db.UnsignedInt
+  IDGateway                    Int?      @db.UnsignedInt
+  IDDispositivo                Int?      @db.UnsignedInt
+  IDMetaEdificio               Int?      @db.UnsignedInt
+  IDEdificio                   Int?      @db.UnsignedInt
+  NombreEntidadInventario      String?   @db.VarChar(32)
+  Descripcion                  String?   @db.VarChar(64)
+  Latitud                      Decimal?  @db.Decimal(10, 8)
+  Longitud                     Decimal?  @db.Decimal(11, 8)
+  SerialGPS                    String?   @db.VarChar(255)
+  GeometriaGPS                 String?   @db.VarChar(255)
+  FechaAlta                    DateTime? @db.Timestamp(0)
+  FechaBaja                    DateTime? @db.Timestamp(0)
+}
+
+model libreriasapis {
+  IDLIBAPISDK Int     @id @default(autoincrement()) @db.UnsignedSmallInt
+  Nombre      String? @db.VarChar(32)
+  Tipo        String? @db.VarChar(16)
+  Web         String? @db.VarChar(255)
+  Subsistema  Int?    @db.UnsignedTinyInt
+  Alcance     String? @db.Text
+}
+
+model metodogrupo {
+  IDGrupoMetodo        Int     @id @default(autoincrement()) @db.UnsignedInt
+  NombreGrupoMetodo    String? @db.VarChar(64)
+  Corporacion          String? @db.VarChar(2)
+  Departamento         String? @db.VarChar(2)
+  Edificio             String? @db.VarChar(2)
+  Itinerario           String? @db.VarChar(2)
+  Empleado             String? @db.VarChar(2)
+  Modificable          String? @db.VarChar(2)
+  Descripcion          String? @db.VarChar(255)
+  Tipo                 String? @db.VarChar(32)
+  IDGrupoMetodoPadre   Int?    @db.UnsignedInt
+  Identificador        String? @db.VarChar(4)
+  IdentificadorExterno String? @db.VarChar(255)
+}
+
+model metodos {
+  IDMetodo            Int     @id @default(autoincrement()) @db.UnsignedInt
+  Indice              Int     @db.UnsignedInt
+  IDGrupoMetodo       Int     @db.UnsignedInt
+  IDLibreria          Int?    @db.UnsignedInt
+  IDMetodoPadre       Int?    @db.UnsignedInt
+  Clase               String  @db.VarChar(10)
+  Tipo                String  @db.VarChar(9)
+  Propagable          String  @db.VarChar(2)
+  BlobsPropagable     String  @db.VarChar(2)
+  NParametros         Int     @db.UnsignedTinyInt
+  NParametrosBinarios Int     @db.UnsignedTinyInt
+  Basico              String  @db.VarChar(2)
+  Estado              String  @db.VarChar(12)
+  Descripcion         String? @db.VarChar(4000)
+  NombreMetodo        String? @db.VarChar(4000)
+  NombreFuncion       String? @db.VarChar(4000)
+  MetodoTrigger       String? @db.VarChar(2)
+  EnvioAplicacion     String  @db.VarChar(2)
+  EjecucionLibre      String  @db.VarChar(2)
+}
+
+model objetosplanimetria {
+  Id           Int     @id @default(autoincrement())
+  NombreObjeto String? @db.VarChar(255)
+  URLHost      String? @db.VarChar(255)
+  IpHost       String? @db.VarChar(255)
+  Puerto       Int?    @db.UnsignedSmallInt
+  Usuario      String? @db.VarChar(255)
+  Clave        String? @db.VarChar(255)
+}
+
+model reldispositivodispositivo {
+  IDRelDisDispositivo Int  @id @default(autoincrement())
+  IDDispositivoPadre  Int?
+  IDDispositivoHijo   Int?
+}
+
+model reldispositivogateway {
+  IDRelDisGateway Int  @id @default(autoincrement())
+  IDDispositivo   Int?
+  IDGateway       Int?
+}
+
+model reldispositivogrupodispositivo {
+  IDRelDisGrupoDis Int     @id @default(autoincrement())
+  IDGrupo          String? @db.VarChar(45)
+  IDDispositivo    String? @db.VarChar(45)
+}
+
+model reldispositivoperfildispositivo {
+  IDRelDisPerfil      Int @id @default(autoincrement())
+  IDDispositivo       Int @db.UnsignedInt
+  IDPerfilDispositivo Int @db.UnsignedInt
+}
+
+model reldispositivoplantillaanalogica {
+  IDRelDisPlantillaAnaloga Int     @id @default(autoincrement())
+  IDPlantillaAnalogica     Int     @db.UnsignedInt
+  IDDispositivo            Int     @db.UnsignedInt
+  Formula                  String? @db.VarChar(255)
+  Version                  String? @db.VarChar(255)
+}
+
+model reldispositivopuerta {
+  IDRelDisPuerta    Int @id @default(autoincrement())
+  IDDispositivo     Int @db.UnsignedInt
+  IDPuerta          Int @db.UnsignedInt
+  IDTipoDispositivo Int
+}
+
+model reldispositivosubsistema {
+  IDRelDisSubsistema Int  @id
+  IDSubsistema       Int?
+  IDDispositivo      Int?
+}
+
+model reldispositivotipoevento {
+  IDRelDisTipoEvento Int @id @default(autoincrement()) @db.UnsignedInt
+  IDDispositivo      Int @default(0) @db.UnsignedInt
+  ClaseEvento        Int @default(0) @db.UnsignedInt
+}
+
+model reldispositivozona {
+  IDRelDisZona  Int  @id @default(autoincrement())
+  IDDispositivo Int? @db.UnsignedInt
+  IDZona        Int? @db.UnsignedInt
+}
+
+model reltipocontroladormetodo {
+  IDTipoControlador        Int  @id @default(autoincrement()) @db.UnsignedInt
+  IDMetodo                 Int? @db.UnsignedInt
+  RelTipoControladorMetodo Int?
+}
+
+model reltipodispositivoperfildispositivo {
+  IDRelTipoDispPerfil Int @id @default(autoincrement()) @db.UnsignedInt
+  IDTipoDispositivo   Int @db.UnsignedInt
+  IDPerfilDispositivo Int @db.UnsignedInt
+}
+
+model reltipodispositivoperfilevento {
+  IDRelTipoDisPerfilEvento Int @id @default(autoincrement()) @db.UnsignedInt
+  IDTipoDispositivo        Int @db.UnsignedInt
+  IDPerfilEvento           Int @db.UnsignedInt
+}
+
+model reltipodispositivotipotecnologia {
+  IDRelTipoDispTipoTec Int @id @default(autoincrement()) @db.UnsignedInt
+  IDTipoDispositivo    Int @db.UnsignedInt
+  IDTipoTecnologia     Int @db.UnsignedInt
+}
+
+model reltipogatewayperfildispositivo {
+  IDRelTipoGatewayPerfil Int  @id @default(autoincrement()) @db.UnsignedInt
+  IDTipoGateway          Int? @db.UnsignedInt
+  IDPerfilDispositivo    Int? @db.UnsignedInt
+}
+
+model subsistemas {
+  IDSubSistema          Int     @id @default(autoincrement()) @db.UnsignedInt
+  NombreSubSistema      String? @db.VarChar(32)
+  DescripcionSubSistema String? @db.VarChar(255)
+  URLSubSistema         String? @db.MediumText
+  Puerto                Int?    @db.SmallInt
+}
+
+model tablasinformacion {
+  IDTabla       Int     @id @db.UnsignedInt
+  NombreTabla   String? @db.VarChar(32)
+  Tipo          Int?    @db.UnsignedInt
+  Identidad     String? @db.VarChar(32)
+  CodigoNetsocs Int?    @db.UnsignedInt
+}
+
+model tecnologiasnetsocs {
+  IDTecnologiaGateway     Int     @id @default(autoincrement()) @db.UnsignedSmallInt
+  NombreTecnologiaGateway String? @db.VarChar(32)
+}

@@ -1,0 +1,39 @@
+{
+    "key": "ConfigAlarmaAXPRO",
+    "data":[
+        {
+            "command": "configMaintenance",
+            "devices": [1],
+            "get": [
+                "getcommunicationstatus", 
+                "getbaterystatus",
+                "getzonestatus",
+                "getsounderstatus",
+                "getautomatition",
+                "getrepeaterstatus",
+                "gettagreaderstatus",
+                "gettransmitter",
+                "getparsetestlist",
+                "gettest",
+                "getkeyfobstatus",
+                "getmaintenance"
+            ],
+            "set":{
+                "test": {
+                    "PaceTest":
+                    {
+                        "enabled":false
+                    }
+                
+                },
+                "tamperalarmonhpclogin":{
+                    "Manage":
+                    {
+                        "tamperDetectionEnabled":false
+                    }                
+                }
+            }
+        }
+    ]
+}
+

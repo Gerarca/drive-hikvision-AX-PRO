@@ -17,7 +17,7 @@ router.get("/getehomelist", communication.GetEHomeList);
 router.get("/getivms", communication.GetEventTypeNotificationIVMS);
 router.put("/setivms", communication.PutEventTypeNotificationIVMS);
 router.get("/getetnalarm/:id", communication.GetETNAlarmReceivingCenter);
-router.put("/setetnalarm/:id", communication.PutETNAlarmReceivingCenter);
+router.put("/setetnalarm", communication.PutETNAlarmReceivingCenter);
 router.get("/getetnapp", communication.GetETNAPP);
 router.put("/setetnapp", communication.PutETNAPP);
 router.get("/getcoultservice", communication.GetCouldService);

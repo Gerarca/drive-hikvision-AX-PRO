@@ -1,0 +1,176 @@
+{
+    "key": "ConfigAlarmaAXPRO",
+    "data":[
+        {
+            "command": "configDevice",
+            "devices": [1],
+            "get": [
+                "getbasicsettingzones", 
+                "getbasicsettingsusbsyst",
+                "getzones",
+                "getdetectorsettingzone/:id",
+                "getstatuspartition",
+                "getmonitoralarm",
+                "getsounder",
+                "getkeypad",
+                "gettagreader",
+                "getkeyfob",
+                "gettag",
+                "getautomation",
+                "getrepeater",
+                "gettransmitter"
+            ],
+            "set":{
+                "device":{
+                    "deviceName": "Alarma..",
+                    "deviceID": "48513038-3937-3932-3036-2428fd5db038",
+                    "model": "DS-PWA48-E-WB",
+                    "serialNumber": "DS-PWA48-E-WB20210821AAWRQ08979206WU",
+                    "macAddress": "24:28:fd:5d:b0:38",
+                    "firmwareVersion": "V1.2.4",
+                    "firmwareReleasedDate": "build 210629",
+                    "hardwareVersion": "0x1000",
+                    "encoderVersion": "V1.0",
+                    "encoderReleasedDate": "build 000000",
+                    "deviceType": "PWA",
+                    "telecontrolID": "0",
+                    "charEncodeFormat": "GB2312",
+                    "languageType": "english"
+                },
+                "basicsettingsusbsyst":{
+                    "SubSys":
+                    {
+                        "id":1,
+                        "enabled":true,
+                        "name":"Area 1"
+                    }
+                },
+                "enrollezones":{
+                    "ZoneMode":
+                    {
+                        "mode":"enter",
+                        "sequence":"",
+                        "deviceType":"0x000C9"
+                    }
+                },
+                "editzone":{
+                    "Zone":
+                    {
+                        "id":0,
+                        "zoneName":"Wireless Zone 1",
+                        "zoneType":"Instant",
+                        "detectorType":"pircam",
+                        "stayAwayEnabled":false,
+                        "chimeEnabled":false,
+                        "silentEnabled":false,
+                        "chimeWarningType":"single",
+                        "timeout":30,
+                        "timeoutType":"recover",
+                        "relateDetector":true,
+                        "detectorSeq":"Q04912272",
+                        "RelatedChanList":
+                            [
+                                {
+                                    "RelatedChan":
+                                        {
+                                            "relatedChan":0,
+                                            "relator":"host"
+                                        }
+                                }
+                            ],
+                        "linkageSubSystem":[1],
+                        "armNoBypassEnabled":false,
+                        "CrossZoneCfg":
+                            {
+                                "isAssociated":false,
+                                "associateTime":1800
+                            },
+                        "sirenDelayTime":0,
+                        "newKeyZoneTriggerTypeCfg":"zoneStatus",
+                        "zoneStatusCfg":"triggerArm"
+                    }
+                },
+                "detectorsetingzone":{
+                    "id": 0,
+                    "pircam":
+                    {
+                        "sensitivityLevel":"auto",
+                        "LEDEnable":true,
+                        "picColorResolution":"QVGA (320x240)",
+                        "picNum":6,
+                        "triggerTime":30,
+                        "heartBeatInterval":300,
+                        "triggerNum":3
+                    }
+                },
+                "armpartitionhome":"",
+                "armpartitionaway":"",
+                "disarmpartition":"",
+                "clearalarm":"",
+                "relay":{
+                    "OutputsCtrl":
+                    { 
+                    "switch":"close",
+                    "List":
+                        [
+                            {
+                                "id":0
+                            }
+                        ]
+                    }
+                },
+                "enrollesounder":{
+                    "SirenMode": {
+                        "mode": "enter",
+                        "sequence": "",
+                        "deviceType": "0x7A011"
+                    }
+                },
+                "enrollkeypad":{
+                    "KeypadMode": {
+                        "mode": "enter",
+                        "sequence": "",
+                        "deviceType": "0x92010"
+                    }
+                },
+                "enrolltagreader":{
+                    "CardReaderMode": {
+                        "mode": "enter",
+                        "sequence": ""
+                    }
+                },
+                "enrollkeyfob":{
+                    "RemoteCtrlMode": {
+                        "mode": "enter",
+                        "sequence": ""
+                    }
+                },
+                "enrolltag":{
+                    "CardMode": {
+                        "mode": "enter"
+                    }
+                },
+                "enrollautomation":{
+                    "OutputModulesMode": {
+                        "mode": "enter",
+                        "sequence": "",
+                        "deviceType": "0x72001"
+                    }
+                },
+                "enrollrepeater":{
+                    "RepeatersMode": {
+                        "mode": "enter",
+                        "sequence": "",
+                        "deviceType": "0x80010"
+                    }
+                },
+                "enrolltransmitter":{
+                    "mode": "enter",
+                    "sequence": "",
+                    "deviceType": "0x70500"
+                }
+            }
+        }
+    ]
+}
+

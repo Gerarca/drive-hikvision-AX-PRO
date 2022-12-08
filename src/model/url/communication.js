@@ -29,11 +29,11 @@ exports.URLCommunication = {
     SetFTP:                         `/ISAPI/System/Network/ftp/1?security=1&iv=9997b1e7aeb0c0f4bfcbd091e4ae499b&devIndex`
 };
 
-exports.GetETNAlarmReceivingCenterURL = (id=1) => (
+exports.GetETNAlarmReceivingCenterURL = (id) => ( 
     `/ISAPI/SecurityCP/Configuration/messageSendARC?id=${id}&format=json&devIndex=`
 );
 
-exports.PutETNAlarmReceivingCenterURL = (id=1) => (
+exports.PutETNAlarmReceivingCenterURL = (id) => (
     `/ISAPI/SecurityCP/Configuration/messageSendARC?id=${id}&format=json&devIndex=`
 );
 

@@ -1,0 +1,13 @@
+{
+    "key": "ConfigAlarmaAXPRO",
+    "data":[
+        {
+            "command": "configDashboard",
+            "devices": [1],
+            "get": [
+                "getlistarea", 
+                "getlistzones" 
+            ]
+        }
+    ]
+}

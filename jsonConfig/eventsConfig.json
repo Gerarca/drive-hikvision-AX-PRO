@@ -1,0 +1,13 @@
+{
+    "key": "ConfigAlarmaAXPRO",
+    "data":[
+        {
+            "command": "configEvents",
+            "devices": [1],
+            "get": [
+                "getsubscribeevents", 
+                "getunsubscribeevents" 
+            ]
+        }
+    ]
+}

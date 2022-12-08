@@ -1,5 +1,5 @@
 const express = require('express');
-const { Server } = require("socket.io");
+//const { Server } = require("socket.io");
 const bodyParse = require('body-parser');
 const morgan  = require('morgan');
 const exphbs  = require('express-handlebars');
@@ -8,8 +8,9 @@ require('dotenv').config();
 
 // Intializations
 const app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+require("./socket/socket.client");
+var http = require('http');//.Server(app);
+//var io = require('socket.io')(http);
 
 // Settings
 app.set('port', process.env.PORT || 4222);
@@ -25,7 +26,6 @@ app.use(express.json());
 // Global variables
 
 // Routes
-//app.use(require('./routes'));
 app.use("/api", require("./routes/index"));
 
 // Starting

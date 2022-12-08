@@ -3,9 +3,9 @@ const httpClient = require("urllib");
 const { eventsApiRestSimulador } = require("./eventsSimulador");
 
 exports.peticionEvents = async ({ url, method = "GET", body }) => {
-  const URL = process.env.API_URL + url + process.env.DISPOSITIVOID;
-  const USER = process.env.USER;
-  const PASS = process.env.PASSWORD;
+  const URL = process.env.APP_GATEWAY_URL + url + process.env.DISPOSITIVOID;
+  const USER = process.env.APP_GATEWAY_USER;
+  const PASS = process.env.APP_GATEWAY_PASSWORD;
   const httpEventReceiver = process.env.NETSOCS_EVENT_RECEIVER_HTTP_URL;
   const client = new DigestFetch(USER, PASS);
 
@@ -96,9 +96,9 @@ exports.DeleteSubscribeEvents = async ({
   contentype,
   body,
 }) => {
-  const URL = process.env.API_URL + url;
-  const USER = process.env.USER;
-  const PASS = process.env.PASSWORD;
+  const URL = process.env.APP_GATEWAY_URL + url;
+  const USER = process.env.APP_GATEWAY_USER;
+  const PASS = process.env.APP_GATEWAY_PASSWORD;
 
   try {
     const options = {

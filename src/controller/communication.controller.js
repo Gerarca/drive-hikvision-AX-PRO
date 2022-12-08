@@ -196,7 +196,7 @@ const { alarmaConfig } = require("../model/config/alarma.model");
   //Put Event Type Notification Alarm Receiving Center
   exports.PutETNAlarmReceivingCenter = async (req, res) => {  
     const data = await peticion({
-      url: PutETNAlarmReceivingCenterURL(req.params.id),
+      url: PutETNAlarmReceivingCenterURL(req.body.id),
       method: 'PUT',
       contentype: 'json',
       body: req.body,

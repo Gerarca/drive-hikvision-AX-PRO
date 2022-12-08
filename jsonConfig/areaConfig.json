@@ -1,0 +1,23 @@
+{
+    "key": "ConfigAlarmaAXPRO",
+    "data":[
+        {
+            "command": "configArea",
+            "devices": [1],
+            "get": [
+                "getlistarea", 
+                "getlistzones" 
+            ],
+            "set":{
+                "nameArea": {
+                    "SubSys":
+                        {
+                            "id":1,
+                            "enabled":true,
+                            "name":"Area"
+                        }
+                }            
+            }
+        }
+    ]
+}

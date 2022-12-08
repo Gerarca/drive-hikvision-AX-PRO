@@ -3,9 +3,9 @@ var convert = require('xml-js');
 
 const peticion = async ({url, method = "GET", contentype, body, formato = 'JSON' }) => { 
 
-    const URL =  process.env.API_URL + url + process.env.DISPOSITIVOID;
-    const USER = process.env.USER;
-    const PASS = process.env.PASSWORD;
+    const URL =  process.env.APP_GATEWAY_URL + url + process.env.DISPOSITIVOID;
+    const USER = process.env.APP_GATEWAY_USER;
+    const PASS = process.env.APP_GATEWAY_PASSWORD;
 
     if( formato === 'JSON' ){
         try
@@ -19,7 +19,7 @@ const peticion = async ({url, method = "GET", contentype, body, formato = 'JSON'
             };
 
             //console.log("method: ", method);
-            console.log("URL: ", URL);
+            //console.log("URL: ", URL);
             //console.log("Body: ", body);
             
             const responseHandler = (err, data, res) => { 
@@ -61,7 +61,7 @@ const peticion = async ({url, method = "GET", contentype, body, formato = 'JSON'
             const { data } = await httpClient.request(URL, options, responseHandler);
             const xml = data.toString('utf8'); 
             var result = convert.xml2json(xml, { compact: true, spaces: 4 });
-            console.log(result);
+            //console.log(result);
             return {
                 ok: true,
                 res: result,

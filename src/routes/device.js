@@ -8,15 +8,33 @@ router.get("/getbasicsettingzones", device.GetBSZones);
 router.get("/getbasicsettingsusbsyst", device.GetBSSubSys);
 router.put("/setbasicsettingsusbsyst", device.PutBSSubSys);
 router.get("/getzones", device.GetZones);
-router.put("/seteditzone/:id", device.SetOneZone);
+router.put("/enrollezones", device.EnrolleZone);
+router.put("/seteditzone", device.SetOneZone);
 router.get("/getdetectorsettingzone/:id", device.URLGetDetectorSetting);
-router.put("/setdetectorsetingzone/:id", device.SetDetectorSetting);
-router.put("/setarmpartitionhome", device.SetArmPartitionHome); /*--*/
-router.put("/setarmpartitionaway", device.SetArmPartitionAway); /*--*/
-router.put("/setdisarmpartition", device.SetDisarmPartition);   /*--*/
+router.put("/setdetectorsetingzone", device.SetDetectorSetting);
+router.put("/setarmpartitionhome", device.SetArmPartitionHome); 
+router.put("/setarmpartitionaway", device.SetArmPartitionAway); 
+router.put("/setdisarmpartition", device.SetDisarmPartition);  
 router.put("/setclearalarm", device.SetClearAlarm);
 router.put("/setrelay", device.SetRelay);
 router.get("/getstatuspartition", device.GetStatusPartition);
 router.get("/getmonitoralarm", device.GetMonitorAlarm);
+router.get("/getsounder", device.GetSounder);
+router.put("/enrollesounder", device.EnrollSounder);
+router.get("/getkeypad", device.GetKeyPad);
+router.put("/enrollkeypad", device.EnrollKeyPad);
+router.get("/gettagreader", device.GetTagReader);
+router.put("/enrolltagreader", device.EnrollTagReader);
+router.get("/getkeyfob", device.GetKeyFob);
+router.put("/enrollkeyfob", device.EnrollKeyFob);
+router.get("/gettag", device.GetTag);
+router.put("/enrolltag", device.Enrolltag);
+router.get("/getautomation", device.GetAutomation);
+router.put("/enrollautomation", device.EnrollAutomation);
+router.get("/getrepeater", device.GetRepeater);
+router.put("/enrollrepeater", device.EnrollRepeater);
+router.get("/gettransmitter", device.GetTransmitter);
+router.put("/enrolltransmitter", device.EnrollTransmitter);
+
 
 module.exports = router;

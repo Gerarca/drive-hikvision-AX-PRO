@@ -1,0 +1,163 @@
+{
+    "key": "ConfigAlarmaAXPRO",
+    "data":[
+        {
+            "command": "configSystem",
+            "devices": [1],
+            "get": [
+                "getdevice", 
+                "getmanagement",
+                "gettimemanagement",
+                "gettimemanagementmode",
+                "getscheduletimer",
+                "getpanelalarmduration",
+                "getpanelfault",
+                "getarmoptions",
+                "getmoderegisterdevice",
+                "getsshsetting",
+                "getuserlockout",
+                "getunlockalluser",
+                "getmodulelockingsetting"
+            ],
+            "set":{
+                "namedevice": {
+                    "deviceName":"Testinggg"
+                },
+                "timemanagement":{
+                    "timeMode": "NTP",
+                    "timeZone": "CST+12:00:00"                
+                },
+                "settimemanagementmode":{
+                    "id": 1,
+                    "addressingFormatType": "ipaddress",
+                    "ipAddress": "24.126.103.213",
+                    "portNo": "123",
+                    "synchronizeInterval": "60"
+                },
+                "scheduletimer":{
+                    "SubSysTime": {
+                        "id": 1,
+                        "autoArmingEnable": false,
+                        "autoArming": "00:00",
+                        "autoDisarmingEnable": false,
+                        "autoDisarming": "00:00",
+                        "lateWarningEnable": false,
+                        "lateWarning": "00:00",
+                        "WeekCfg": [
+                          {
+                            "dayOfWeek": "Saturday"
+                          },
+                          {
+                            "dayOfWeek": "Sunday"
+                          }
+                        ],
+                        "HolidayExceptionsCfg": {
+                          "enable": false,
+                          "HolidayCfg": []
+                        },
+                        "weekendsExceptEnable": true,
+                        "autoArmAndDisarmSoundPromot": true
+                    }                    
+                },
+                "panelalarmduration":{
+                    "DeviceTime":
+                    {
+                        "sounderTime":10
+                    }                
+                },
+                "panelfault":{
+                    "FaultCheckParameter": {
+                        "ipcDetectEnabled": true,
+                        "batteryDetectionEnabled": true,
+                        "LANDetectionEnabled": true,
+                        "WIFIDetectionEnabled": true,
+                        "ACcheckTime": 10
+                      }                    
+                },
+                "setmanagemen":{
+                    "Manage": {
+                        "mandatoryArmEnabled": false,
+                        "zonesfaultArming": false,
+                        "sysVolume": 8,
+                        "wordVoiceEnabled": true,
+                        "tamperLinkageAlarmEnabled": true,
+                        "oneKeyLockEnabled": false,
+                        "systemfaultArming": true,
+                        "faultMixedAutoArmEnabled": false,
+                        "jammingSensitivity": "high",
+                        "faultIndicatorEnabled": false,
+                        "ezvizIndicatorEnabled": true,
+                        "motionDetectorRestore": "off",
+                        "UKLocalCertificationEnabled": false,
+                        "ATPFaultSendDelayTime": 10800,
+                        "voicePromotType": {
+                          "armingPromot": false,
+                          "armedPromot": false,
+                          "disarmedPromot": false,
+                          "alarmPromot": false
+                        },
+                        "disArmAndClearAlarmVoicePrompt": false,
+                        "armIndicatorLightAlwaysOnEnabled": false,
+                        "energySavingMode": false
+                      }                    
+                },
+                "armoptions":{
+                    "AdvancedParameter": {
+                        "armProcessEnabled": false,
+                        "preventionOfArm": [
+                          "tamperEvident",
+                          "offline",
+                          "undervoltage",
+                          "trigger",
+                          "power",
+                          "communication"
+                        ],
+                        "armWithFault": [
+                          "tamperEvident",
+                          "offline",
+                          "undervoltage",
+                          "trigger",
+                          "power",
+                          "communication"
+                        ],
+                        "armFaultTipsEnabled": false,
+                        "preAlarmEnabled": true,
+                        "delayTime": 30
+                      }                    
+                },
+                "moderegisterdevice":{
+                    "RegisterMode":
+                    {
+                        "mode":"exit"
+                    }                
+                },
+                "sshsetting":{
+                    "enabled": false
+                },
+                "userlockout":{
+                    "LockCfg":
+                    {
+                        "maxTryTimes":7,
+                        "lockedTime":1800
+                    }                
+                },
+                "unlockalluser":{
+                    "operType":"unlockAll",
+                    "List":[]                
+                },
+                "modulelockingsetting":{
+                    "List": [
+                        {
+                          "ModuleLock": {
+                            "id": 1,
+                            "type": "keypad",
+                            "maxTryTimes": 3,
+                            "lockedTime": 90
+                          }
+                        }
+                    ]                    
+                }            
+            }
+        }
+    ]
+}

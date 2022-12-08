@@ -8,5 +8,6 @@ router.use("/communication", require("./communication"));
 router.use("/maintenance", require("./maintenance"));
 router.use("/events", require("./events"));
 router.use("/area", require("./area"));
+router.use("/gateway", require("./gateway"));
 
 module.exports = router;
