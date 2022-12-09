@@ -26,7 +26,7 @@ exports.URLCommunication = {
     GetNATAdminAccess:              `/ISAPI/Security/adminAccesses?devIndex=`,
     SetNATUPnp:                     `/ISAPI/System/Network/UPnP?devIndex=`,
     GetFTP:                         `/ISAPI/System/Network/ftp?security=1&iv=ad6214164a36007bed172c6c497f2ae4&devIndex=`,
-    SetFTP:                         `/ISAPI/System/Network/ftp/1?security=1&iv=9997b1e7aeb0c0f4bfcbd091e4ae499b&devIndex`
+    SetFTP:                         `/ISAPI/System/Network/ftp/1?security=1&iv=9997b1e7aeb0c0f4bfcbd091e4ae499b&devIndex=`
 };
 
 exports.GetETNAlarmReceivingCenterURL = (id) => ( 

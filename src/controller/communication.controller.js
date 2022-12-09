@@ -328,6 +328,6 @@ const petition = require('../Api/isapiConnection');
       body: ModelCommunication.FTP( req.body ),
       formato: 'XML'
     }); console.log(data);
-    return true;
+    return true; 
     //res.json(data);
   };

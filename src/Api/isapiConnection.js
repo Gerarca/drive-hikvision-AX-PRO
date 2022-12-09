@@ -51,7 +51,7 @@ const peticion = async ({url, method = "GET", contentype, body, formato = 'JSON'
                 contentType: 'text/plain',
                 data: body
             };
-            
+              
             const responseHandler = (err, data, res) => { 
                 if (err) {
                     console.log("ERROR: ", err);
