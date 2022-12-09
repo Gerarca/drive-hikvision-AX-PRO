@@ -3,7 +3,7 @@
     "data":[
         {
             "command": "configMaintenance",
-            "devices": [1],
+            "devices": ["8AFAB0F0-2F31-47EE-86AA-67B648E4E8A3"],
             "get": [
                 "getcommunicationstatus", 
                 "getbaterystatus",
@@ -19,6 +19,7 @@
                 "getmaintenance"
             ],
             "set":{
+                "error": "the device is not registered",
                 "test": {
                     "PaceTest":
                     {

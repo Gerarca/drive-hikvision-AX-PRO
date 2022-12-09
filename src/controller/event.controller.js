@@ -1,7 +1,6 @@
 const { URLEvents, URLDeleteSubscribeEvents } = require("../model/url/events.model");
 const { peticionEvents } = require('../Api/isapiEventsConnection');
 const { DeleteSubscribeEvents } = require('../Api/isapiEventsConnection');
-const peticion = require('../Api/isapiConnection');
 
   //Get Subscribe Events
   exports.GetEvents = async (req, res) => {  
@@ -21,7 +20,8 @@ const peticion = require('../Api/isapiConnection');
       body: JSON.stringify(req.body),
     });
 
-    res.json(data);
+    return data;
+    //res.json(data);
   };
 
   //Delete Subscribe Events
@@ -32,6 +32,6 @@ const peticion = require('../Api/isapiConnection');
       contentype: 'json',
       body: "",
     });
- 
-    res.json(data);
+    return data;
+    //res.json(data);
   };

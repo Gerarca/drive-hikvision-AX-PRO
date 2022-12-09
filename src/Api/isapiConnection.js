@@ -39,7 +39,7 @@ const peticion = async ({url, method = "GET", contentype, body, formato = 'JSON'
         }
         catch (Exception)
         {
-            console.log("Exception: ", Exception);
+            console.log("Exception JSON: ", Exception);
         } 
     }else{ 
         //XML
@@ -61,7 +61,7 @@ const peticion = async ({url, method = "GET", contentype, body, formato = 'JSON'
             const { data } = await httpClient.request(URL, options, responseHandler);
             const xml = data.toString('utf8'); 
             var result = convert.xml2json(xml, { compact: true, spaces: 4 });
-            //console.log(result);
+            
             return {
                 ok: true,
                 res: result,
@@ -69,7 +69,7 @@ const peticion = async ({url, method = "GET", contentype, body, formato = 'JSON'
         }
         catch (Exception)
         {
-            console.log("Exception: ", Exception);
+            console.log("Exception XML: ", Exception);
         }   
     }
 }

@@ -12,7 +12,7 @@ router.get("/gettimemanagementmode", system.GetTimeManagementMode);
 router.put("/settimemanagementmode", system.PutTimeManagementMode);
 router.put("/setdstmanagement", system.PutDSTManagement);
 router.get("/getscheduletimer", system.GetScheduleTimer);
-router.put("/setscheduletimer", system.PutScheduleTimer);
+router.put("/setscheduletimer", system.PutScheduleTimer); //Don't Work
 router.get("/getpanelalarmduration", system.GetPanelAlarmDuration);
 router.put("/setpanelalarmduration", system.PutPanelAlarmDuration);
 router.get("/getpanelfault", system.GetVerificacionFallasPanel);

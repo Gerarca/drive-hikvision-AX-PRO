@@ -3,7 +3,7 @@
     "data":[
         {
             "command": "configCommunication",
-            "devices": [1],
+            "devices": ["8AFAB0F0-2F31-47EE-86AA-67B648E4E8A3"],
             "get": [
                 "getadminaccess", 
                 "getwlan",
@@ -13,7 +13,7 @@
                 "getarc",
                 "getehomelist",
                 "getivms",
-                "getetnalarm/:id",
+                "getetnalarm/1",
                 "getetnapp",
                 "getcoultservice",
                 "getnatupnp",
@@ -22,112 +22,123 @@
                 "getftp"
             ],
             "set":{
-            "adminAccess":{
-                    "id": "1",
-                    "protocol": "HTTP",
-                    "port": "8083"        
-            },
-            "wlan":{
-                    "ipVersion": "v4",
-                    "addressingType": "dynamic",
-                    "ipAddress": "192.168.8.1",
-                    "subnetMask": "255.255.255.0",
-                    "ipAddressGateway": "0.0.0.0",
-                    "ipAddressPrimaryDNS": "0.0.0.0",
-                    "ipAddressSecondaryDNS": "0.0.0.0"        
-            },
-            "wireless":{
+                "error": "the device is not registered",
+                "adminAccess":{
+                        "id": "1",
+                        "protocol": "HTTP",
+                        "port": "8083"        
+                },
+                "wlan":{
+                        "ipVersion": "v4",
+                        "addressingType": "dynamic",
+                        "ipAddress": "192.168.8.1",
+                        "subnetMask": "255.255.255.0",
+                        "ipAddressGateway": "0.0.0.0",
+                        "ipAddressPrimaryDNS": "0.0.0.0",
+                        "ipAddressSecondaryDNS": "0.0.0.0"        
+                },
+                "wireless":{
+                        "enabled": true,
+                        "ssid": "AP-Avila",
+                        "securityMode": "WPA2-personal",
+                        "wpaKeyLength": 0        
+                },
+                "ARC1":
+                {
+                    "id":1,
+                    "enabled":true,
+                    "spareEnabled":false,
+                    "protocol":"EHome",
+                    "periodicTestEnabled":false
+                },  
+                "ARC2": {
+                    "id": 2,
                     "enabled": true,
-                    "ssid": "AP-Avila",
-                    "securityMode": "WPA2-personal",
-                    "wpaKeyLength": 0        
-            },
-            "ARC1":
-            {
-                "id":1,
-                "enabled":true,
-                "spareEnabled":false,
-                "protocol":"EHome",
-                "periodicTestEnabled":false
-            },  
-            "ARC2": {
-                "id": 2,
-                "enabled": true,
-                "spareEnabled": false,
-                "protocol": "EHome",
-                "periodicTestEnabled": false
-            },            
-            "ivms":{
-                    "Direct": {
-                        "alarmTamperEnabled": false,
-                        "lifeSecurityEnabled": false,
-                        "systemStatusEnabled": false,
-                        "operateEventEnabled": true,
-                        "zoneAlarmTamperEnabled": true,
-                        "exDevTamperEventEnabled": true,
-                        "hostTamperEventEnabled": true,
-                        "emergencyEventEnabled": true,
-                        "medicalEventEnabled": true,
-                        "gasEventEnabled": true,
-                        "fireEventEnabled": true,
-                        "hostStatusEventEnabled": true,
-                        "exDevStatusEventEnabled": true,
-                        "detectorStatusEventEnabled": true,
-                        "intelligentAlarmEnable": true
-                    }            
-            },
-            "etnalarm":{
+                    "spareEnabled": false,
+                    "protocol": "EHome",
+                    "periodicTestEnabled": false
+                },            
+                "ivms":{
+                        "Direct": {
+                            "alarmTamperEnabled": false,
+                            "lifeSecurityEnabled": false,
+                            "systemStatusEnabled": false,
+                            "operateEventEnabled": true,
+                            "zoneAlarmTamperEnabled": true,
+                            "exDevTamperEventEnabled": true,
+                            "hostTamperEventEnabled": true,
+                            "emergencyEventEnabled": true,
+                            "medicalEventEnabled": true,
+                            "gasEventEnabled": true,
+                            "fireEventEnabled": true,
+                            "hostStatusEventEnabled": true,
+                            "exDevStatusEventEnabled": true,
+                            "detectorStatusEventEnabled": true,
+                            "intelligentAlarmEnable": true
+                        }            
+                },
+                "etnalarm":{
+                        "id": 1,
+                        "SendARC": {
+                            "alarmTamperEnabled": false,
+                            "lifeSecurityEnabled": false,
+                            "systemStatusEnabled": false,
+                            "operateEventEnabled": true,
+                            "zoneAlarmTamperEnabled": true,
+                            "exDevTamperEventEnabled": true,
+                            "hostTamperEventEnabled": true,
+                            "emergencyEventEnabled": true,
+                            "medicalEventEnabled": true,
+                            "gasEventEnabled": true,
+                            "fireEventEnabled": true,
+                            "hostStatusEventEnabled": true,
+                            "exDevStatusEventEnabled": true,
+                            "detectorStatusEventEnabled": true,
+                            "intelligentAlarmEnable": true
+                        }
+                },
+                "etnapp":{
+                        "Cloud":
+                        {
+                            "alarmTamperEnabled":false,
+                            "lifeSecurityEnabled":false,
+                            "systemStatusEnabled":false,
+                            "operateEventEnabled":true,
+                            "zoneAlarmTamperEnabled":true,
+                            "exDevTamperEventEnabled":true,
+                            "hostTamperEventEnabled":true,
+                            "emergencyEventEnabled":true,
+                            "medicalEventEnabled":true,
+                            "gasEventEnabled":true,
+                            "fireEventEnabled":true,
+                            "hostStatusEventEnabled":true,
+                            "exDevStatusEventEnabled":true,
+                            "detectorStatusEventEnabled":true,
+                            "intelligentAlarmEnable":true
+                        }        
+                },
+                "couldservice":{
+                        "enabled": "true",
+                        "registerStatus": "true",
+                        "redirect": "false",
+                        "addressingFormatType": "hostname",
+                        "hostName": "litedev.sa.hik-connect.com",
+                        "operateCode": "6945500de495b074f98aefa0f38ecc56",
+                        "netWork": "2",
+                        "periodicTestEnabled": "false",
+                        "periodicTestTime": "60"        
+                },
+                "ftp":{
                     "id": 1,
-                    "SendARC": {
-                        "alarmTamperEnabled": false,
-                        "lifeSecurityEnabled": false,
-                        "systemStatusEnabled": false,
-                        "operateEventEnabled": true,
-                        "zoneAlarmTamperEnabled": true,
-                        "exDevTamperEventEnabled": true,
-                        "hostTamperEventEnabled": true,
-                        "emergencyEventEnabled": true,
-                        "medicalEventEnabled": true,
-                        "gasEventEnabled": true,
-                        "fireEventEnabled": true,
-                        "hostStatusEventEnabled": true,
-                        "exDevStatusEventEnabled": true,
-                        "detectorStatusEventEnabled": true,
-                        "intelligentAlarmEnable": true
-                    }
-            },
-            "etnapp":{
-                    "Cloud":
-                    {
-                        "alarmTamperEnabled":false,
-                        "lifeSecurityEnabled":false,
-                        "systemStatusEnabled":false,
-                        "operateEventEnabled":true,
-                        "zoneAlarmTamperEnabled":true,
-                        "exDevTamperEventEnabled":true,
-                        "hostTamperEventEnabled":true,
-                        "emergencyEventEnabled":true,
-                        "medicalEventEnabled":true,
-                        "gasEventEnabled":true,
-                        "fireEventEnabled":true,
-                        "hostStatusEventEnabled":true,
-                        "exDevStatusEventEnabled":true,
-                        "detectorStatusEventEnabled":true,
-                        "intelligentAlarmEnable":true
-                    }        
-            },
-            "couldservice":{
-                    "enabled": "true",
-                    "registerStatus": "true",
-                    "redirect": "false",
-                    "addressingFormatType": "hostname",
-                    "hostName": "litedev.sa.hik-connect.com",
-                    "operateCode": "6945500de495b074f98aefa0f38ecc56",
-                    "netWork": "2",
-                    "periodicTestEnabled": "false",
-                    "periodicTestTime": "60"        
-            },
-            "ftp":{
+                    "enabled": false,
+                    "portNo": "21",
+                    "annoyftp": true,
+                    "uploadPath":{
+                        "pathDepth": 0
+                    },
+                    "uploadProtocolType": "FTP"                      
+                },
+                "natupnp":{
                     "enabled": true,
                     "mapmode": "auto",
                     "portList":
@@ -144,9 +155,9 @@
                             "internalPort": "admin",
                             "externalPort": "8000" 
                         }
-                    ]        
+                    ]                
+                }
             }
         }
-    }
     ]
 }
