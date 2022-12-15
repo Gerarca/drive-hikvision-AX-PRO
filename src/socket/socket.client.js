@@ -29,7 +29,7 @@ socket.onopen = (s) => {
 };
 
 socket.onmessage = async (msg) => {
-    //console.log(msg.data);
+    console.log("Driver Alarma: ", msg.data);
     const data =  JSON.parse(msg.data);
     var id="";
     
