@@ -1,7 +1,7 @@
 const { request, response } = require("express");
 const dashboard = require("../../controller/dashboard.controller");
 
-exports.configDashboard = async (req = request, res = response) => {
+exports.configDashboard = async (req = request, id) => {
 
     let response="";
     const getter = req.get;
@@ -10,13 +10,13 @@ exports.configDashboard = async (req = request, res = response) => {
     getter.includes("getstatusalarm") &&
     ( response = {
         ...response,
-        statusalarm: await dashboard.statusAlarma()
+        statusalarm: await dashboard.statusAlarma(id)
     });
  
     getter.includes("getsubsistemas") &&
     ( response = {
         ...response,
-        subsistemas: await dashboard.statusSubSistemas()
+        subsistemas: await dashboard.statusSubSistemas(id)
     });
 
     console.log("response: ", response);

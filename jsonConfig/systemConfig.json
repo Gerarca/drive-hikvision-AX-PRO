@@ -4,6 +4,12 @@
         {
             "command": "configSystem",
             "devices": ["8AFAB0F0-2F31-47EE-86AA-67B648E4E8A3"],
+            "message": [
+                {
+                    "id": "8AFAB0F0-2F31-47EE-86AA-67B648E4E8A3",
+                    "errror": "No se configuro el modulo System del dispositivo 8AFAB0F0-2F31-47EE-86AA-67B648E4E8A3"
+                }
+            ],
             "get": [
                 "getdevice", 
                 "getmanagement",

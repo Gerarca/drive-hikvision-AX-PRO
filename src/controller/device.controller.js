@@ -12,400 +12,366 @@ const petition = require('../Api/isapiConnection');
 const { xmlsetdevice } = require('../model/xml/device.model');
 
   //Get Device Info
-  exports.GetDevice = async (req, res) => { 
+  exports.GetDevice = async (id) => { 
     const data = await petition({
-      url: URLDevice.GetDevice,
+      url: URLDevice.GetDevice + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Put Device Info
-  exports.PutDevice = async (req, res) => {   
+  exports.PutDevice = async (req, id) => {   
     const data = await petition({
-      url: URLDevice.PutDevice,
+      url: URLDevice.PutDevice + id,
       method: 'PUT',
       contentype: 'json',
       body: xmlsetdevice(req.body),
       formato: 'xml'
     });
-    return true;
-    //res.json(data); 
+    return true; 
   };
 
   //Get Basic Setting Zones
-  exports.GetBSZones = async (req, res) => { 
+  exports.GetBSZones = async (id) => { 
     const data = await petition({
-      url: URLDevice.GetBSZones,
+      url: URLDevice.GetBSZones + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Get Basic Setting SubSystems
-  exports.GetBSSubSys = async (req, res) => { 
+  exports.GetBSSubSys = async (id) => { 
     const data = await petition({
-      url: URLDevice.GetBSSubSys,
+      url: URLDevice.GetBSSubSys + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Put Basic Setting SubSystems FALTA POR DECIFRAR EL XML
-  exports.PutBSSubSys = async (req, res) => {  
+  exports.PutBSSubSys = async (req, id) => {  
     const data = await petition({
-      url: URLDevice.PutBSSubSys,
+      url: URLDevice.PutBSSubSys + id,
       method: 'PUT',
       contentype: 'json',
       body: xmlsetdevice(req.body),
       formato: 'xml'
     });
     return true;
-    //res.json(data);
   };
   
   //Get List Zones
-  exports.GetZones = async (req, res) => { 
+  exports.GetZones = async (id) => { 
     const data = await petition({
-      url: URLDevice.GetZones,
+      url: URLDevice.GetZones + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Put Enroll Zone
-  exports.EnrolleZone = async (req, res) => {  
+  exports.EnrolleZone = async (req, id) => {  
     const data = await petition({
-      url: URLDevice.EnrolleZone,
+      url: URLDevice.EnrolleZone + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     });
     return true;
-    //res.json(data);
   };
 
   //Put Edit One Zones
-  exports.SetOneZone = async (req, res) => {  
+  exports.SetOneZone = async (req, id) => {  
     const data = await petition({
-      url: URLSetOneZone(req.body.Zone.id),
+      url: URLSetOneZone(req.body.Zone.id) + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     });
     return true;
-    //res.json(data);
   };
 
   //Get Detector Setting Zone
-  exports.URLGetDetectorSetting = async (req, res) => { 
+  exports.URLGetDetectorSetting = async (req, id) => { 
     const data = await petition({
-      url: URLGetDetectorSetting(req.params.id),
+      url: URLGetDetectorSetting(req.params.id) + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Put Detector Setting Zones
-  exports.SetDetectorSetting = async (req, res) => {   
+  exports.SetDetectorSetting = async (req, id) => {   
     const data = await petition({
-      url: URLSetDetectorSetting(req.body.id),
+      url: URLSetDetectorSetting(req.body.id) + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     });
     return true;
-    //res.json(data);
   };
 
   //Put Arm Partition Home
-  exports.SetArmPartitionHome = async (req, res) => {  
+  exports.SetArmPartitionHome = async (req, id) => {  
     const data = await petition({
-      url: URLSetArmPartitionHome(req.body.id),
+      url: URLSetArmPartitionHome(req.body.id) + id,
       method: 'PUT',
       contentype: 'json',
       body: "",
     }); 
     return true;
-    //res.json(data);
   };
 
   //Put Arm Partition Away
-  exports.SetArmPartitionAway = async (req, res) => {   
+  exports.SetArmPartitionAway = async (req, id) => {   
     const data = await petition({
-      url: URLSetArmPartitionAway(req.body.id),
+      url: URLSetArmPartitionAway(req.body.id) + id,
       method: 'PUT',
       contentype: 'json',
       body: "",
     });
     return true;
-    //res.json(data);
   };
   
   //Put Disarm Partition 
-  exports.SetDisarmPartition = async (req, res) => {  
+  exports.SetDisarmPartition = async (req, id) => {  
     const data = await petition({
-      url: URLSetDisarmPartition(req.body.id),
+      url: URLSetDisarmPartition(req.body.id) + id,
       method: 'PUT',
       contentype: 'json',
       body: "",
     });
-    return true;
-    //res.json(data);
   };
 
   //Put Clear Alarm 
-  exports.SetClearAlarm = async (req, res) => {  
+  exports.SetClearAlarm = async (req, id) => {  
     const data = await petition({
-      url: URLSetClearAlarm(req.body.id),
+      url: URLSetClearAlarm(req.body.id) + id,
       method: 'PUT',
       contentype: 'json',
       body: "",
     });
     return true;
-    //res.json(data);
   };
 
   //Put Control Relay
-  exports.SetRelay = async (req, res) => {  
+  exports.SetRelay = async (req, id) => {  
     const data = await petition({
-      url: URLSetRelay(req.body.OutputsCtrl.List[0].id),
+      url: URLSetRelay(req.body.OutputsCtrl.List[0].id) + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     }); 
     return true;
-    //res.json(data);
   };
 
   //Get Estatus Partition
-  exports.GetStatusPartition = async (req, res) => { 
+  exports.GetStatusPartition = async (id) => { 
     const data = await petition({
-      url: URLDevice.GetStatusPartition,
+      url: URLDevice.GetStatusPartition + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Get Monitor Alarm
-  exports.GetMonitorAlarm = async (req, res) => { 
+  exports.GetMonitorAlarm = async (id) => { 
     const data = await petition({
-      url: URLDevice.GetMonitorAlarm,
+      url: URLDevice.GetMonitorAlarm + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Get Sounder
-  exports.GetSounder = async (req, res) => { 
+  exports.GetSounder = async (id) => { 
     const data = await petition({
-      url: URLDevice.GetSounder,
+      url: URLDevice.GetSounder + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Enroll Sounder
-  exports.EnrollSounder = async (req, res) => {  
+  exports.EnrollSounder = async (req, id) => {  
     const data = await petition({
-      url: URLDevice.EnrollSounder,
+      url: URLDevice.EnrollSounder + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     });
     return true;
-    //res.json(data);
   };
 
   //Get KeyPad
-  exports.GetKeyPad = async (req, res) => { 
+  exports.GetKeyPad = async (id) => { 
     const data = await petition({
-      url: URLDevice.GetKeyPad,
+      url: URLDevice.GetKeyPad + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Enroll KeyPad
-  exports.EnrollKeyPad = async (req, res) => {  
+  exports.EnrollKeyPad = async (req, id) => {  
     const data = await petition({
-      url: URLDevice.EnrollKeyPad,
+      url: URLDevice.EnrollKeyPad + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     });
     return true;
-    //res.json(data);
   };
 
   //Get Tag reader
-  exports.GetTagReader = async (req, res) => { 
+  exports.GetTagReader = async (id) => { 
     const data = await petition({
-      url: URLDevice.GetTagReader,
+      url: URLDevice.GetTagReader + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Enroll Tag reader
-  exports.EnrollTagReader = async (req, res) => {  
+  exports.EnrollTagReader = async (req, id) => {  
     const data = await petition({
-      url: URLDevice.EnrollTagReader,
+      url: URLDevice.EnrollTagReader + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     });
     return true;
-    //res.json(data);
   };
 
   //Get Key Fob
-  exports.GetKeyFob = async (req, res) => { 
+  exports.GetKeyFob = async (id) => { 
     const data = await petition({
-      url: URLDevice.GetKeyFob,
+      url: URLDevice.GetKeyFob + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Enroll Key Fob
-  exports.EnrollKeyFob = async (req, res) => {  
+  exports.EnrollKeyFob = async (req, id) => {  
     const data = await petition({
-      url: URLDevice.EnrollKeyFob,
+      url: URLDevice.EnrollKeyFob + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     });
     return true;
-    //res.json(data);
   };
 
   //Get Tag
-  exports.GetTag = async (req, res) => { 
+  exports.GetTag = async (id) => { 
     const data = await petition({
-      url: URLDevice.GetTag,
+      url: URLDevice.GetTag + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Enroll Tag
-  exports.Enrolltag = async (req, res) => {  
+  exports.Enrolltag = async (req, id) => {  
     const data = await petition({
-      url: URLDevice.Enrolltag,
+      url: URLDevice.Enrolltag + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     });
     return true;
-    //res.json(data);
   };
 
   //Get Automation
-  exports.GetAutomation = async (req, res) => { 
+  exports.GetAutomation = async (id) => { 
     const data = await petition({
-      url: URLDevice.GetAutomation,
+      url: URLDevice.GetAutomation + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Enroll Automation
-  exports.EnrollAutomation = async (req, res) => {  
+  exports.EnrollAutomation = async (req, id) => {  
     const data = await petition({
-      url: URLDevice.EnrollAutomation,
+      url: URLDevice.EnrollAutomation + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     });
     return true;
-    //res.json(data);
   };
 
   //Get Repeater
-  exports.GetRepeater = async (req, res) => { 
+  exports.GetRepeater = async (id) => { 
     const data = await petition({
-      url: URLDevice.GetRepeater,
+      url: URLDevice.GetRepeater + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Enroll Repeater
-  exports.EnrollRepeater = async (req, res) => {  
+  exports.EnrollRepeater = async (req, id) => {  
     const data = await petition({
-      url: URLDevice.EnrollRepeater,
+      url: URLDevice.EnrollRepeater + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     });
     return true;
-    //res.json(data);
   };
 
   //Get Transmitter
-  exports.GetTransmitter = async (req, res) => { 
+  exports.GetTransmitter = async (id) => { 
     const data = await petition({
-      url: URLDevice.GetTransmitter,
+      url: URLDevice.GetTransmitter + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    res.json(data);
   };
 
   //Enroll Transmitter
-  exports.EnrollTransmitter = async (req, res) => {  
+  exports.EnrollTransmitter = async (req, id) => {  
     const data = await petition({
-      url: URLDevice.EnrollTransmitter,
+      url: URLDevice.EnrollTransmitter + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     });
     return true;
-    //res.json(data);
   };
 

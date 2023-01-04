@@ -6,31 +6,31 @@ const { configEvents } = require("../configDevice/configEvents.controller");
 const { configSystem } = require("../configDevice/configSystem.controller");
 const { configMaintenance } = require("../configDevice/configMaintenance.controller");
 
-exports.configDevice = (config) => {
+exports.configDevice = (config, id) => {
 
     const { command } = config;
 
     switch (command){
         case "configArea":
-            configArea(config);
+            configArea(config, id);
             break;
         case "configCommunication":
-            configCommunication(config);
+            configCommunication(config, id);
             break;
         case "configDashboard":
-            configDashboard(config);
+            configDashboard(config, id);
             break;
         case "configDevice":
-            configDeviceAlarm(config);
+            configDeviceAlarm(config, id);
             break;
         case "configEvents":
-            configEvents(config);
+            configEvents(config, id);
             break;
         case "configMaintenance":
-            configMaintenance(config);
+            configMaintenance(config, id);
             break;
         case "configSystem":
-            configSystem(config);
+            configSystem(config, id);
             break;
     }
 }

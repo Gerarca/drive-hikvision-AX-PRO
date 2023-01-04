@@ -3,333 +3,306 @@ const ModelSystem = require("../model/xml/system.model");
 const petition = require('../Api/isapiConnection');
 
   //Systems GET Settings
-  exports.GetInformacionDispositivo = async (req, res) => {   
+  exports.GetInformacionDispositivo = async (id) => {   
     const data = await petition({
-      url: URLSystem.GetInfoDispositivo,
+      url: URLSystem.GetInfoDispositivo + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Systems PUT Name Device
-  exports.GetNombreDispositivo = async (req, res) => { 
+  exports.GetNombreDispositivo = async (req, id) => { 
     const data = await petition({
-      url: URLSystem.PutNombreDispositivo,
+      url: URLSystem.PutNombreDispositivo + id,
       method: 'PUT',
       contentype: 'text/plain',
       body: ModelSystem.cambiarnombre( req.body ),
       formato: 'XML'
     }); 
     return true;
-    //res.json(data)   
   };
 
   //Systems GET Management
-  exports.GetAdministracion = async (req, res) => {  
+  exports.GetAdministracion = async (id) => {  
     const data = await petition({
-      url: URLSystem.GetAdministracion,
+      url: URLSystem.GetAdministracion + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Systems PUT Management
-  exports.PutAdministracion = async (req, res) => {   
+  exports.PutAdministracion = async (req, id) => {   
     const data = await petition({
-      url: URLSystem.PutAdministracion,
+      url: URLSystem.PutAdministracion + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     }); 
     return true; 
-    //res.json(data);
   };
 
   //Get Time management
-  exports.GetTimeManagement = async (req, res) => {
+  exports.GetTimeManagement = async (id) => {
     const data = await petition({
-      url: URLSystem.GetTimeManagement,
+      url: URLSystem.GetTimeManagement + id,
       method: 'GET',
       contentype: 'json',
       body: {},
       formato: 'XML'
     });
     return data;
-    //res.json(data)
   };
 
   //Set Time management
-  exports.PutTimeManagement = async (req, res) => { 
+  exports.PutTimeManagement = async (req, id) => { 
     const data = await petition({
-      url: URLSystem.PutTimeManagement,
+      url: URLSystem.PutTimeManagement + id,
       method: 'PUT',
       contentype: 'json',
       body: ModelSystem.timeManagement(req.body),
       formato: 'XML'
     }); 
     return true;
-    //res.json(data)
   };
 
   //Get Time management Mode
-  exports.GetTimeManagementMode = async (req, res) => {
+  exports.GetTimeManagementMode = async (id) => {
     const data = await petition({
-      url: URLSystem.GetTimeManagementMode,
+      url: URLSystem.GetTimeManagementMode + id,
       method: 'GET',
       contentype: 'json',
       body: {},
       formato: 'XML'
     });
     return data;
-    //res.json(data)
   };
  
   //Put Time management Mode
-  exports.PutTimeManagementMode = async (req, res) => {  
+  exports.PutTimeManagementMode = async (req, id) => {  
     const data = await petition({
-      url: URLSystem.PutTimeManagementMode,
+      url: URLSystem.PutTimeManagementMode + id,
       method: 'PUT',
       contentype: 'json',
       body: ModelSystem.timeManagementMode(req.body),
       formato: 'XML'
     }); 
     return true;
-    //res.json(data)
   };
 
   //Systems SET DST Management
-  exports.PutDSTManagement = async (req, res) => {    
+  exports.PutDSTManagement = async (req, id) => {    
     const data = await petition({
-      url: URLSystem.PutDSTManagement,
+      url: URLSystem.PutDSTManagement + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     });
     return true;
-    //res.json(data); 
   };
 
   //Get Schedule Timer
-  exports.GetScheduleTimer = async (req, res) => {  
+  exports.GetScheduleTimer = async (id) => {  
     const data = await petition({
-      url: URLSystem.GetScheduleTimer,
+      url: URLSystem.GetScheduleTimer + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
-    return data;
-    //res.json(data); 
+    return data; 
   };
 
   //Systems SET Schedule Timer
-  exports.PutScheduleTimer = async (req, res) => {    
+  exports.PutScheduleTimer = async (req, id) => {    
     const data = await petition({
-      url: PutScheduleTimer(req.body.SubSysTime.id),
+      url: PutScheduleTimer(req.body.SubSysTime.id) + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     }); 
     return true;
-    //res.json(data); 
   };
 
   //Get Panel Alarm Duration
-  exports.GetPanelAlarmDuration = async (req, res) => {  
+  exports.GetPanelAlarmDuration = async (id) => {  
     const data = await petition({
-      url: URLSystem.GetPanelAlarmDuration,
+      url: URLSystem.GetPanelAlarmDuration + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data); 
   };
 
   //Panel Alarm Duration
-  exports.PutPanelAlarmDuration = async (req, res) => {    
+  exports.PutPanelAlarmDuration = async (req, id) => {    
     const data = await petition({
-      url: URLSystem.PutPanelAlarmDuration,
+      url: URLSystem.PutPanelAlarmDuration + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     }); 
     return true;
-    //res.json(data); 
   };
 
   //Systems GET Panel fault Check
-  exports.GetVerificacionFallasPanel = async (req, res) => {  
+  exports.GetVerificacionFallasPanel = async (id) => {  
     const data = await petition({
-      url: URLSystem.GetVerificacionFallasPanel,
+      url: URLSystem.GetVerificacionFallasPanel + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //Systems PUT Panel fault Check
-  exports.PutVerificacionFallasPanel = async (req, res) => {   
+  exports.PutVerificacionFallasPanel = async (req, id) => {   
     const data = await petition({
-      url: URLSystem.PutVerificacionFallasPanel,
+      url: URLSystem.PutVerificacionFallasPanel + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     }); 
     return true;
-    //res.json(data);
   };
 
   //Systems GET Arm Options
-  exports.GetEquipajeOpciones = async (req, res) => {  
+  exports.GetEquipajeOpciones = async (id) => {  
     const data = await petition({
-      url: URLSystem.GetEquipajeOpciones,
+      url: URLSystem.GetEquipajeOpciones + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data)
   };
 
   //Systems PUT Arm Options
-  exports.PutEquipajeOpciones = async (req, res) => {   
+  exports.PutEquipajeOpciones = async (req, id) => {   
     const data = await petition({
-      url: URLSystem.PutEquipajeOpciones,
+      url: URLSystem.PutEquipajeOpciones + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     }); 
     return true;
-    //res.json(data);
   };
 
   //Systems GET Device Enroll Mode
-  exports.GetModoRegistroDispositivo = async (req, res) => {  
+  exports.GetModoRegistroDispositivo = async (id) => {  
     const data = await petition({
-      url: URLSystem.GetModoRegistroDispositivo,
+      url: URLSystem.GetModoRegistroDispositivo + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data)
   };
 
   //Systems PUT Device Enroll Modes
-  exports.PutModoRegistroDispositivo = async (req, res) => {    
+  exports.PutModoRegistroDispositivo = async (req, id) => {    
     const data = await petition({
-      url: URLSystem.PutModoRegistroDispositivo,
+      url: URLSystem.PutModoRegistroDispositivo + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     }); 
     return true;
-    //res.json(data);
   };
 
   //Systems GET SSH Setting
-  exports.GetSSHSettings = async (req, res) => { 
+  exports.GetSSHSettings = async (id) => { 
     const data = await petition({
-      url: URLSystem.GetSSHSettings,
+      url: URLSystem.GetSSHSettings + id,
       method: 'GET',
       contentype: 'json',
       body: {},
       formato: 'xml'
     });
     return data;
-    //res.json(data)
   };
   
   //Systems PUT SSH Setting
-  exports.PutSSHSettings = async (req, res) => {  
+  exports.PutSSHSettings = async (req, id) => {  
     const data = await petition({
-      url: URLSystem.PutSSHSettings,
+      url: URLSystem.PutSSHSettings + id,
       method: 'PUT',
       contentype: 'text/plain',
       body: ModelSystem.sshSetting( req.body ),
       formato: 'XML'
     }); 
-    return true;
-    //res.json(data)    
+    return true;    
   };
 
   //Systems GET User Lockout Attemps
-  exports.GetUserLockoutAttemps = async (req, res) => {  
+  exports.GetUserLockoutAttemps = async (id) => {  
     const data = await petition({
-      url: URLSystem.GetUserLockoutAttemps,
+      url: URLSystem.GetUserLockoutAttemps + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data)
   };
   
   //Systems PUT User Lockout Attemps
-  exports.PutUserLockoutAttemps = async (req, res) => {  
+  exports.PutUserLockoutAttemps = async (req, id) => {  
     const data = await petition({
-      url: URLSystem.PutUserLockoutAttemps,
+      url: URLSystem.PutUserLockoutAttemps + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     }); 
-    return true;
-    //res.json(data);    
+    return true;   
   };
 
   //Systems GET UnLock All User 
-  exports.GetAllUserlocked = async (req, res) => {  
+  exports.GetAllUserlocked = async (id) => {  
     const data = await petition({
-      url: URLSystem.GetAllUserlocked,
+      url: URLSystem.GetAllUserlocked + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data)
   };
   
   //Systems PUT UnLock All User 
-  exports.PutAllUserUnlock = async (req, res) => { 
+  exports.PutAllUserUnlock = async (req, id) => { 
     const data = await petition({
-      url: URLSystem.PutAllUserUnlock,
+      url: URLSystem.PutAllUserUnlock + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     }); 
-    return true;
-    //res.json(data);      
+    return true;     
   };
 
   //Systems Get Module Locking Setting 
-  exports.GetModuleLockingSetting = async (req, res) => {  
+  exports.GetModuleLockingSetting = async (id) => {  
     const data = await petition({
-      url: URLSystem.GetModuleLockingSetting,
+      url: URLSystem.GetModuleLockingSetting + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data)
   };
 
   //Systems PUT UnLock All User 
-  exports.PutModuleLockingSetting = async (req, res) => {  
+  exports.PutModuleLockingSetting = async (req, id) => {  
     const data = await petition({
-      url: URLSystem.PutModuleLockingSetting,
+      url: URLSystem.PutModuleLockingSetting + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     }); 
-    return true;
-    //res.json(data);        
+    return true;       
   };
 

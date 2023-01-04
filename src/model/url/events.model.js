@@ -1,5 +1,5 @@
 exports.URLEvents = {
-    GetEvents:          `/ISAPI/Event/notification/subscribeDeviceMgmt?format=json`,
+    GetEvents:          `/ISAPI/Event/notification/subscribeDeviceMgmt?format=json&devIndex=`,
 };
 
 exports.URLDeleteSubscribeEvents = (ID) => (

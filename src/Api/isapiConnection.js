@@ -3,7 +3,7 @@ var convert = require('xml-js');
 
 const peticion = async ({url, method = "GET", contentype, body, formato = 'JSON' }) => { 
 
-    const URL =  process.env.APP_GATEWAY_URL + url + process.env.DISPOSITIVOID;
+    const URL =  process.env.APP_GATEWAY_URL + url;
     const USER = process.env.APP_GATEWAY_USER;
     const PASS = process.env.APP_GATEWAY_PASSWORD;
 

@@ -3,7 +3,7 @@ const httpClient = require("urllib");
 const { eventsApiRestSimulador } = require("./eventsSimulador");
 
 exports.peticionEvents = async ({ url, method = "GET", body }) => {
-  const URL = process.env.APP_GATEWAY_URL + url + process.env.DISPOSITIVOID;
+  const URL = process.env.APP_GATEWAY_URL + url;
   const USER = process.env.APP_GATEWAY_USER;
   const PASS = process.env.APP_GATEWAY_PASSWORD;
   const httpEventReceiver = process.env.NETSOCS_EVENT_RECEIVER_HTTP_URL;

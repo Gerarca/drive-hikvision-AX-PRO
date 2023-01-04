@@ -2,231 +2,212 @@ const { URLMaintenance, URLSetZone, URLGetDetectorZone, URLSetDetectorZone } = r
 const petition = require('../Api/isapiConnection');
 
   //GET maintenance Communication Status
-  exports.GetCommunicationStatus = async (req, res ) => {
+  exports.GetCommunicationStatus = async (id) => {
     const data = await petition({
-      url: URLMaintenance.GetCommunicationStatus,
+      url: URLMaintenance.GetCommunicationStatus + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //GET maintenance Batery Status
-  exports.GetSBateryStatus = async (req, res ) => { 
+  exports.GetSBateryStatus = async (id) => { 
     const data = await petition({
-      url: URLMaintenance.GetSBateryStatus,
+      url: URLMaintenance.GetSBateryStatus + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //GET Zone Status
-  exports.GetZoneStatus = async (req, res ) => {
+  exports.GetZoneStatus = async (id) => {
     const data = await petition({
-      url: URLMaintenance.GetZoneStatus,
+      url: URLMaintenance.GetZoneStatus + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //GET Sounder Status
-  exports.GetSounderStatus = async (req, res ) => { 
+  exports.GetSounderStatus = async (id) => { 
     const data = await petition({
-      url: URLMaintenance.GetSounderStatus,
+      url: URLMaintenance.GetSounderStatus + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //GET Automatitation
-  exports.GetAutomatitation = async (req, res ) => { 
+  exports.GetAutomatitation = async (id) => { 
     const data = await petition({
-      url: URLMaintenance.GetAutomatitation,
+      url: URLMaintenance.GetAutomatitation + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //GET Repeater Status
-  exports.GetRepeaterStatus = async (req, res ) => { 
+  exports.GetRepeaterStatus = async (id) => { 
     const data = await petition({
-      url: URLMaintenance.GetRepeaterStatus,
+      url: URLMaintenance.GetRepeaterStatus + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //GET Tag Reader Status
-  exports.GetTagReaderStatus = async (req, res ) => { 
+  exports.GetTagReaderStatus = async (id) => { 
     const data = await petition({
-      url: URLMaintenance.GetTagReaderStatus,
+      url: URLMaintenance.GetTagReaderStatus + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //GET Key Pad Status
-  exports.GetKeyPadStatus = async (req, res ) => { 
+  exports.GetKeyPadStatus = async (id) => { 
     const data = await petition({
-      url: URLMaintenance.GetKeyPadStatus,
+      url: URLMaintenance.GetKeyPadStatus + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //GET Transmitter Status
-  exports.GetTransmitter = async (req, res ) => { 
+  exports.GetTransmitter = async (id) => { 
     const data = await petition({
-      url: URLMaintenance.GetTransmitter,
+      url: URLMaintenance.GetTransmitter + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //GET Parse Test List
-  exports.GetParseTestList = async (req, res ) => { 
+  exports.GetParseTestList = async (id) => { 
     const data = await petition({
-      url: URLMaintenance.GetParseTestList,
+      url: URLMaintenance.GetParseTestList + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //GET Test 
-  exports.GetTest = async (req, res ) => { 
+  exports.GetTest = async (id) => { 
     const data = await petition({
-      url: URLMaintenance.GetTest,
+      url: URLMaintenance.GetTest + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //SET Test
-  exports.SetTest = async (req, res ) => { 
+  exports.SetTest = async (req, id ) => { 
     const data = await petition({
-      url: URLMaintenance.SetTest,
+      url: URLMaintenance.SetTest + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     });
     return data;
-    //res.json(data);
   };
 
   //GET Zone
-  exports.GetZone = async (req, res ) => { 
+  exports.GetZone = async (id) => { 
     const data = await petition({
-      url: URLMaintenance.GetZone,
+      url: URLMaintenance.GetZone + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //SET Zone
-  exports.SetZone = async (req, res ) => { 
+  exports.SetZone = async (req, id ) => { 
     const data = await petition({
-      url: URLSetZone(req.params.id),
+      url: URLSetZone(req.params.id) + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     });
     return true;
-    //res.json(data);
   };
 
   //GET Detector Zone
-  exports.GetDetectorZone = async (req, res ) => { 
+  exports.GetDetectorZone = async (req, id) => { 
     const data = await petition({
-      url: URLGetDetectorZone(req.params.id),
+      url: URLGetDetectorZone(req.params.id) + id,
       method: 'GET',
       contentype: 'json',
       body: req.body,
     });
     return data;
-    //res.json(data);
   };
 
   //SET Detector Zone
-  exports.SetDetectorZone = async (req, res ) => { 
+  exports.SetDetectorZone = async (req, id) => { 
     const data = await petition({
-      url: URLSetDetectorZone(req.params.id),
+      url: URLSetDetectorZone(req.params.id) + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     });
     return true;
-    //res.json(data);
   };
 
   //GET KeyFob Status
-  exports.GetKeyFobStatus = async (req, res ) => { 
+  exports.GetKeyFobStatus = async (id) => { 
     const data = await petition({
-      url:URLMaintenance.GetKeyFobStatus,
+      url:URLMaintenance.GetKeyFobStatus + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //GET Maintenance
-  exports.GetMaintenance = async (req, res ) => { 
+  exports.GetMaintenance = async (id) => { 
     const data = await petition({
-      url:URLMaintenance.GetMaintenance,
+      url:URLMaintenance.GetMaintenance + id,
       method: 'GET',
       contentype: 'json',
       body: {},
     });
     return data;
-    //res.json(data);
   };
 
   //SET Tamper Alarm On HPC Login
-  exports.SetTamperAlarmOnHPCLogin = async (req, res ) => { 
+  exports.SetTamperAlarmOnHPCLogin = async (req, id) => { 
     const data = await petition({
-      url: URLMaintenance.SetTamperAlarmOnHPCLogin,
+      url: URLMaintenance.SetTamperAlarmOnHPCLogin + id,
       method: 'PUT',
       contentype: 'json',
       body: req.body,
     });
     return true;
-    //res.json(data);
   };
 
 
