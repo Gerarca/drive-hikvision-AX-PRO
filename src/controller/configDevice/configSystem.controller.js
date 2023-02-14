@@ -1,127 +1,127 @@
 const { request, response } = require("express");
 const system = require("../../controller/system.controller");
 
-exports.configSystem = async (req=request, id) => {
+exports.configSystem = async (req=request, device) => {
 
     let response="";
     const getter = req.get;
     const setter = req.set;
 
     setter.namedevice &&
-    ( system.GetNombreDispositivo({body:setter.namedevice, id}) );
+    ( system.GetNombreDispositivo({body:setter.namedevice, device}) );
 
     setter.timemanagement &&
-    ( system.PutTimeManagement({body:setter.timemanagement, id}) );
+    ( system.PutTimeManagement({body:setter.timemanagement, device}) );
 
     setter.settimemanagementmode &&
-    ( system.PutTimeManagementMode({body:setter.settimemanagementmode, id}) );
+    ( system.PutTimeManagementMode({body:setter.settimemanagementmode, device}) );
 
     setter.scheduletimer &&
-    ( system.PutScheduleTimer({body:setter.scheduletimer, id}) );
+    ( system.PutScheduleTimer({body:setter.scheduletimer, device}) );
 
     setter.panelalarmduration &&
-    ( system.PutPanelAlarmDuration({body:setter.panelalarmduration, id}) );
+    ( system.PutPanelAlarmDuration({body:setter.panelalarmduration, device}) );
 
     setter.panelfault &&
-    ( system.PutVerificacionFallasPanel({body:setter.panelfault, id}) );
+    ( system.PutVerificacionFallasPanel({body:setter.panelfault, device}) );
 
     setter.setmanagemen &&
-    ( system.PutAdministracion({body:setter.setmanagemen, id}) );
+    ( system.PutAdministracion({body:setter.setmanagemen, device}) );
 
     setter.armoptions &&
-    ( system.PutEquipajeOpciones({body:setter.armoptions, id}) );
+    ( system.PutEquipajeOpciones({body:setter.armoptions, device}) );
 
     setter.moderegisterdevice &&
-    ( system.PutModoRegistroDispositivo({body:setter.moderegisterdevice, id}) );
+    ( system.PutModoRegistroDispositivo({body:setter.moderegisterdevice, device}) );
 
     setter.sshsetting &&
-    ( system.PutSSHSettings({body:setter.sshsetting, id}) );
+    ( system.PutSSHSettings({body:setter.sshsetting, device}) );
 
     setter.userlockout &&
-    ( system.PutUserLockoutAttemps({body:setter.userlockout, id}) );
+    ( system.PutUserLockoutAttemps({body:setter.userlockout, device}) );
 
     setter.unlockalluser &&
-    ( system.PutAllUserUnlock({body:setter.unlockalluser, id}) );
+    ( system.PutAllUserUnlock({body:setter.unlockalluser, device}) );
 
     setter.modulelockingsetting &&
-    ( system.PutModuleLockingSetting({body:setter.modulelockingsetting, id}) );
+    ( system.PutModuleLockingSetting({body:setter.modulelockingsetting, device}) );
 
     getter.includes("getdevice") &&
     ( response = {
         ...response,
-        device: await system.GetInformacionDispositivo(id)
+        device: await system.GetInformacionDispositivo(device)
     });
  
     getter.includes("getmanagement") &&
     ( response = {
         ...response,
-        management: await system.GetAdministracion(id)
+        management: await system.GetAdministracion(device)
     });
 
     getter.includes("gettimemanagement") &&
     ( response = {
         ...response,
-        timemanagement: await system.GetTimeManagement(id)
+        timemanagement: await system.GetTimeManagement(device)
     });
 
     getter.includes("gettimemanagementmode") &&
     ( response = {
         ...response,
-        timemanagementmode: await system.GetTimeManagementMode(id)
+        timemanagementmode: await system.GetTimeManagementMode(device)
     });
 
     getter.includes("getscheduletimer") &&
     ( response = {
         ...response,
-        scheduletimer: await system.GetScheduleTimer(id)
+        scheduletimer: await system.GetScheduleTimer(device)
     });
 
     getter.includes("getpanelalarmduration") &&
     ( response = {
         ...response,
-        panelalarmduration: await system.GetPanelAlarmDuration(id)
+        panelalarmduration: await system.GetPanelAlarmDuration(device)
     });
 
     getter.includes("getpanelfault") &&
     ( response = {
         ...response,
-        panelfault: await system.GetVerificacionFallasPanel(id)
+        panelfault: await system.GetVerificacionFallasPanel(device)
     });
 
     getter.includes("getarmoptions") &&
     ( response = {
         ...response,
-        armoptions: await system.GetEquipajeOpciones(id)
+        armoptions: await system.GetEquipajeOpciones(device)
     });
 
     getter.includes("getmoderegisterdevice") &&
     ( response = {
         ...response,
-        moderegisterdevice: await system.GetModoRegistroDispositivo(id)
+        moderegisterdevice: await system.GetModoRegistroDispositivo(device)
     });
 
     getter.includes("getsshsetting") &&
     ( response = {
         ...response,
-        sshsetting: await system.GetSSHSettings(id)
+        sshsetting: await system.GetSSHSettings(device)
     });
 
     getter.includes("getuserlockout") &&
     ( response = {
         ...response,
-        userlockout: await system.GetUserLockoutAttemps(id)
+        userlockout: await system.GetUserLockoutAttemps(device)
     });
 
     getter.includes("getunlockalluser") &&
     ( response = {
         ...response,
-        unlockalluser: await system.GetAllUserlocked(id)
+        unlockalluser: await system.GetAllUserlocked(device)
     });
 
     getter.includes("getmodulelockingsetting") &&
     ( response = {
         ...response,
-        modulelockingsetting: await system.GetModuleLockingSetting(id)
+        modulelockingsetting: await system.GetModuleLockingSetting(device)
     });
 
     console.log("response: ", response);

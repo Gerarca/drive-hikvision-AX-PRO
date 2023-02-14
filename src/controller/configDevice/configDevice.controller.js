@@ -5,32 +5,34 @@ const { configDeviceAlarm } = require("../configDevice/configDeviceAlarm.control
 const { configEvents } = require("../configDevice/configEvents.controller");
 const { configSystem } = require("../configDevice/configSystem.controller");
 const { configMaintenance } = require("../configDevice/configMaintenance.controller");
+const { infoDevice } = require("../../utils/functions/infoDevice.utils");
 
-exports.configDevice = (config, id) => {
+exports.configDevice = async (config, id) => {
 
     const { command } = config;
+    const device = await infoDevice(id);
 
     switch (command){
         case "configArea":
-            configArea(config, id);
+            configArea(config, device);
             break;
         case "configCommunication":
-            configCommunication(config, id);
+            configCommunication(config, device);
             break;
         case "configDashboard":
-            configDashboard(config, id);
+            configDashboard(config, device);
             break;
         case "configDevice":
-            configDeviceAlarm(config, id);
+            configDeviceAlarm(config, device);
             break;
         case "configEvents":
-            configEvents(config, id);
+            configEvents(config, device);
             break;
         case "configMaintenance":
-            configMaintenance(config, id);
+            configMaintenance(config, device);
             break;
         case "configSystem":
-            configSystem(config, id);
+            configSystem(config, device);
             break;
     }
 }

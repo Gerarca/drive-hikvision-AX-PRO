@@ -1,7 +1,7 @@
 const { request, response } = require("express");
 const { GetEvents, DelSubscribeEvents } = require("../../controller/event.controller");
 
-exports.configEvents = async (req = request, id) => {
+exports.configEvents = async (req = request, device) => {
 
     let response="";
     const getter = req.get;
@@ -16,13 +16,13 @@ exports.configEvents = async (req = request, id) => {
     getter.includes("getsubscribeevents") &&
     ( response = {
         ...response,
-        subscribeevents: await GetEvents({body:bodyEvent, id})
+        subscribeevents: await GetEvents({body:bodyEvent, device})
     });
 
     getter.includes("getunsubscribeevents") &&
     ( response = {
         ...response,
-        unsubscribeevents: await DelSubscribeEvents(id)
+        unsubscribeevents: await DelSubscribeEvents(device)
     });
 
     console.log("response: ", response);
