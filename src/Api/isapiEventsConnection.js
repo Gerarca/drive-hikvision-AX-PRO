@@ -2,10 +2,10 @@ const DigestFetch = require("digest-fetch");
 const httpClient = require("urllib");
 const { eventsApiRestSimulador } = require("./eventsSimulador");
 
-exports.peticionEvents = async ({ url, method = "GET", body }) => {
-  const URL = process.env.APP_GATEWAY_URL + url;
-  const USER = process.env.APP_GATEWAY_USER;
-  const PASS = process.env.APP_GATEWAY_PASSWORD;
+exports.peticionEvents = async ({ infoDevice, url, method = "GET", body }) => {
+  const URL =  "http://"+ infoDevice.DireccionAIPV4 +":"+ infoDevice.PuertoNoSSL + url;
+  const USER = infoDevice.user;
+  const PASS = infoDevice.password;
   const httpEventReceiver = process.env.NETSOCS_EVENT_RECEIVER_HTTP_URL;
   const client = new DigestFetch(USER, PASS);
 
@@ -63,14 +63,15 @@ exports.peticionEvents = async ({ url, method = "GET", body }) => {
             let date = new Date(dateE);
             console.log("date: ", date);          
 
-            if( URLEvent !== undefined ){
+            if( URLEvent !== undefined ){ 
+              console.log("envio evento.........");
                 fetch(httpEventReceiver + URLEvent, {
                     method: 'POST', 
                     headers: {
                     'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        "deviceId": 101,
+                        "deviceId": infoDevice.IDDispositivo,
                         "eventDate": date.getUTCFullYear() +"-"+ date.getMonth() +"-"+ date.getDay(),
                         "eventTime": date.getHours()  
                     }) 
@@ -91,14 +92,16 @@ exports.peticionEvents = async ({ url, method = "GET", body }) => {
 };
 
 exports.DeleteSubscribeEvents = async ({
+  infoDevice,
   url,
   method = "DEL",
   contentype,
   body,
 }) => {
-  const URL = process.env.APP_GATEWAY_URL + url;
-  const USER = process.env.APP_GATEWAY_USER;
-  const PASS = process.env.APP_GATEWAY_PASSWORD;
+
+  const URL =  "http://"+ infoDevice.DireccionAIPV4 +":"+ infoDevice.PuertoNoSSL + url;
+  const USER = infoDevice.user;
+  const PASS = infoDevice.password;
 
   try {
     const options = {

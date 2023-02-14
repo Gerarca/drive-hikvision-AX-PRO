@@ -57,6 +57,7 @@ export type dispositivos = {
   IDSubsistema: number | null
   IDTipoFamilia: number | null
   IDFamilia: number | null
+  IDFabricante: number | null
   IDTipoDispositivo: number | null
   IDGateway: number | null
   IDControlador: number | null
@@ -101,7 +102,8 @@ export type dispositivos = {
   Serial: string | null
   user: string | null
   password: string | null
-  IDManual: string | null
+  IDManual: number | null
+  Directo: number | null
 }
 
 /**
@@ -148,6 +150,8 @@ export type gateway = {
   user: string | null
   password: string | null
   Serial: string | null
+  IDManual: number | null
+  IDZona: number | null
 }
 
 /**
@@ -851,7 +855,7 @@ export namespace Prisma {
 
   /**
    * Prisma Client JS version: 4.7.1
-   * Query Engine version: 272861e07ab64f234d3ffc4094e32bd61775599c
+   * Query Engine version: ca7fcef713137fa11029d519a9780db130cca91d
    */
   export type PrismaVersion = {
     client: string
@@ -2704,6 +2708,7 @@ export namespace Prisma {
     IDSubsistema: number | null
     IDTipoFamilia: number | null
     IDFamilia: number | null
+    IDFabricante: number | null
     IDTipoDispositivo: number | null
     IDGateway: number | null
     IDControlador: number | null
@@ -2722,6 +2727,8 @@ export namespace Prisma {
     PuertoMantenimiento: number | null
     PuertoConexionSC: number | null
     PuertoConexionCC: number | null
+    IDManual: number | null
+    Directo: number | null
   }
 
   export type DispositivosSumAggregateOutputType = {
@@ -2729,6 +2736,7 @@ export namespace Prisma {
     IDSubsistema: number | null
     IDTipoFamilia: number | null
     IDFamilia: number | null
+    IDFabricante: number | null
     IDTipoDispositivo: number | null
     IDGateway: number | null
     IDControlador: number | null
@@ -2747,6 +2755,8 @@ export namespace Prisma {
     PuertoMantenimiento: number | null
     PuertoConexionSC: number | null
     PuertoConexionCC: number | null
+    IDManual: number | null
+    Directo: number | null
   }
 
   export type DispositivosMinAggregateOutputType = {
@@ -2754,6 +2764,7 @@ export namespace Prisma {
     IDSubsistema: number | null
     IDTipoFamilia: number | null
     IDFamilia: number | null
+    IDFabricante: number | null
     IDTipoDispositivo: number | null
     IDGateway: number | null
     IDControlador: number | null
@@ -2798,7 +2809,8 @@ export namespace Prisma {
     Serial: string | null
     user: string | null
     password: string | null
-    IDManual: string | null
+    IDManual: number | null
+    Directo: number | null
   }
 
   export type DispositivosMaxAggregateOutputType = {
@@ -2806,6 +2818,7 @@ export namespace Prisma {
     IDSubsistema: number | null
     IDTipoFamilia: number | null
     IDFamilia: number | null
+    IDFabricante: number | null
     IDTipoDispositivo: number | null
     IDGateway: number | null
     IDControlador: number | null
@@ -2850,7 +2863,8 @@ export namespace Prisma {
     Serial: string | null
     user: string | null
     password: string | null
-    IDManual: string | null
+    IDManual: number | null
+    Directo: number | null
   }
 
   export type DispositivosCountAggregateOutputType = {
@@ -2858,6 +2872,7 @@ export namespace Prisma {
     IDSubsistema: number
     IDTipoFamilia: number
     IDFamilia: number
+    IDFabricante: number
     IDTipoDispositivo: number
     IDGateway: number
     IDControlador: number
@@ -2903,6 +2918,7 @@ export namespace Prisma {
     user: number
     password: number
     IDManual: number
+    Directo: number
     _all: number
   }
 
@@ -2912,6 +2928,7 @@ export namespace Prisma {
     IDSubsistema?: true
     IDTipoFamilia?: true
     IDFamilia?: true
+    IDFabricante?: true
     IDTipoDispositivo?: true
     IDGateway?: true
     IDControlador?: true
@@ -2930,6 +2947,8 @@ export namespace Prisma {
     PuertoMantenimiento?: true
     PuertoConexionSC?: true
     PuertoConexionCC?: true
+    IDManual?: true
+    Directo?: true
   }
 
   export type DispositivosSumAggregateInputType = {
@@ -2937,6 +2956,7 @@ export namespace Prisma {
     IDSubsistema?: true
     IDTipoFamilia?: true
     IDFamilia?: true
+    IDFabricante?: true
     IDTipoDispositivo?: true
     IDGateway?: true
     IDControlador?: true
@@ -2955,6 +2975,8 @@ export namespace Prisma {
     PuertoMantenimiento?: true
     PuertoConexionSC?: true
     PuertoConexionCC?: true
+    IDManual?: true
+    Directo?: true
   }
 
   export type DispositivosMinAggregateInputType = {
@@ -2962,6 +2984,7 @@ export namespace Prisma {
     IDSubsistema?: true
     IDTipoFamilia?: true
     IDFamilia?: true
+    IDFabricante?: true
     IDTipoDispositivo?: true
     IDGateway?: true
     IDControlador?: true
@@ -3007,6 +3030,7 @@ export namespace Prisma {
     user?: true
     password?: true
     IDManual?: true
+    Directo?: true
   }
 
   export type DispositivosMaxAggregateInputType = {
@@ -3014,6 +3038,7 @@ export namespace Prisma {
     IDSubsistema?: true
     IDTipoFamilia?: true
     IDFamilia?: true
+    IDFabricante?: true
     IDTipoDispositivo?: true
     IDGateway?: true
     IDControlador?: true
@@ -3059,6 +3084,7 @@ export namespace Prisma {
     user?: true
     password?: true
     IDManual?: true
+    Directo?: true
   }
 
   export type DispositivosCountAggregateInputType = {
@@ -3066,6 +3092,7 @@ export namespace Prisma {
     IDSubsistema?: true
     IDTipoFamilia?: true
     IDFamilia?: true
+    IDFabricante?: true
     IDTipoDispositivo?: true
     IDGateway?: true
     IDControlador?: true
@@ -3111,6 +3138,7 @@ export namespace Prisma {
     user?: true
     password?: true
     IDManual?: true
+    Directo?: true
     _all?: true
   }
 
@@ -3211,6 +3239,7 @@ export namespace Prisma {
     IDSubsistema: number | null
     IDTipoFamilia: number | null
     IDFamilia: number | null
+    IDFabricante: number | null
     IDTipoDispositivo: number | null
     IDGateway: number | null
     IDControlador: number | null
@@ -3255,7 +3284,8 @@ export namespace Prisma {
     Serial: string | null
     user: string | null
     password: string | null
-    IDManual: string | null
+    IDManual: number | null
+    Directo: number | null
     _count: DispositivosCountAggregateOutputType | null
     _avg: DispositivosAvgAggregateOutputType | null
     _sum: DispositivosSumAggregateOutputType | null
@@ -3282,6 +3312,7 @@ export namespace Prisma {
     IDSubsistema?: boolean
     IDTipoFamilia?: boolean
     IDFamilia?: boolean
+    IDFabricante?: boolean
     IDTipoDispositivo?: boolean
     IDGateway?: boolean
     IDControlador?: boolean
@@ -3327,6 +3358,7 @@ export namespace Prisma {
     user?: boolean
     password?: boolean
     IDManual?: boolean
+    Directo?: boolean
   }
 
 
@@ -4113,6 +4145,8 @@ export namespace Prisma {
     PuertoMantenimiento: number | null
     PuertoConexionSC: number | null
     PuertoConexionCC: number | null
+    IDManual: number | null
+    IDZona: number | null
   }
 
   export type GatewaySumAggregateOutputType = {
@@ -4130,6 +4164,8 @@ export namespace Prisma {
     PuertoMantenimiento: number | null
     PuertoConexionSC: number | null
     PuertoConexionCC: number | null
+    IDManual: number | null
+    IDZona: number | null
   }
 
   export type GatewayMinAggregateOutputType = {
@@ -4172,6 +4208,8 @@ export namespace Prisma {
     user: string | null
     password: string | null
     Serial: string | null
+    IDManual: number | null
+    IDZona: number | null
   }
 
   export type GatewayMaxAggregateOutputType = {
@@ -4214,6 +4252,8 @@ export namespace Prisma {
     user: string | null
     password: string | null
     Serial: string | null
+    IDManual: number | null
+    IDZona: number | null
   }
 
   export type GatewayCountAggregateOutputType = {
@@ -4256,6 +4296,8 @@ export namespace Prisma {
     user: number
     password: number
     Serial: number
+    IDManual: number
+    IDZona: number
     _all: number
   }
 
@@ -4275,6 +4317,8 @@ export namespace Prisma {
     PuertoMantenimiento?: true
     PuertoConexionSC?: true
     PuertoConexionCC?: true
+    IDManual?: true
+    IDZona?: true
   }
 
   export type GatewaySumAggregateInputType = {
@@ -4292,6 +4336,8 @@ export namespace Prisma {
     PuertoMantenimiento?: true
     PuertoConexionSC?: true
     PuertoConexionCC?: true
+    IDManual?: true
+    IDZona?: true
   }
 
   export type GatewayMinAggregateInputType = {
@@ -4334,6 +4380,8 @@ export namespace Prisma {
     user?: true
     password?: true
     Serial?: true
+    IDManual?: true
+    IDZona?: true
   }
 
   export type GatewayMaxAggregateInputType = {
@@ -4376,6 +4424,8 @@ export namespace Prisma {
     user?: true
     password?: true
     Serial?: true
+    IDManual?: true
+    IDZona?: true
   }
 
   export type GatewayCountAggregateInputType = {
@@ -4418,6 +4468,8 @@ export namespace Prisma {
     user?: true
     password?: true
     Serial?: true
+    IDManual?: true
+    IDZona?: true
     _all?: true
   }
 
@@ -4553,6 +4605,8 @@ export namespace Prisma {
     user: string | null
     password: string | null
     Serial: string | null
+    IDManual: number | null
+    IDZona: number | null
     _count: GatewayCountAggregateOutputType | null
     _avg: GatewayAvgAggregateOutputType | null
     _sum: GatewaySumAggregateOutputType | null
@@ -4614,6 +4668,8 @@ export namespace Prisma {
     user?: boolean
     password?: boolean
     Serial?: boolean
+    IDManual?: boolean
+    IDZona?: boolean
   }
 
 
@@ -27804,6 +27860,7 @@ export namespace Prisma {
     IDSubsistema: 'IDSubsistema',
     IDTipoFamilia: 'IDTipoFamilia',
     IDFamilia: 'IDFamilia',
+    IDFabricante: 'IDFabricante',
     IDTipoDispositivo: 'IDTipoDispositivo',
     IDGateway: 'IDGateway',
     IDControlador: 'IDControlador',
@@ -27848,7 +27905,8 @@ export namespace Prisma {
     Serial: 'Serial',
     user: 'user',
     password: 'password',
-    IDManual: 'IDManual'
+    IDManual: 'IDManual',
+    Directo: 'Directo'
   };
 
   export type DispositivosScalarFieldEnum = (typeof DispositivosScalarFieldEnum)[keyof typeof DispositivosScalarFieldEnum]
@@ -27893,7 +27951,9 @@ export namespace Prisma {
     DireccionPublica2: 'DireccionPublica2',
     user: 'user',
     password: 'password',
-    Serial: 'Serial'
+    Serial: 'Serial',
+    IDManual: 'IDManual',
+    IDZona: 'IDZona'
   };
 
   export type GatewayScalarFieldEnum = (typeof GatewayScalarFieldEnum)[keyof typeof GatewayScalarFieldEnum]
@@ -28332,6 +28392,7 @@ export namespace Prisma {
     IDSubsistema?: IntNullableFilter | number | null
     IDTipoFamilia?: IntNullableFilter | number | null
     IDFamilia?: IntNullableFilter | number | null
+    IDFabricante?: IntNullableFilter | number | null
     IDTipoDispositivo?: IntNullableFilter | number | null
     IDGateway?: IntNullableFilter | number | null
     IDControlador?: IntNullableFilter | number | null
@@ -28376,7 +28437,8 @@ export namespace Prisma {
     Serial?: StringNullableFilter | string | null
     user?: StringNullableFilter | string | null
     password?: StringNullableFilter | string | null
-    IDManual?: StringNullableFilter | string | null
+    IDManual?: IntNullableFilter | number | null
+    Directo?: IntNullableFilter | number | null
   }
 
   export type dispositivosOrderByWithRelationInput = {
@@ -28384,6 +28446,7 @@ export namespace Prisma {
     IDSubsistema?: SortOrder
     IDTipoFamilia?: SortOrder
     IDFamilia?: SortOrder
+    IDFabricante?: SortOrder
     IDTipoDispositivo?: SortOrder
     IDGateway?: SortOrder
     IDControlador?: SortOrder
@@ -28429,6 +28492,7 @@ export namespace Prisma {
     user?: SortOrder
     password?: SortOrder
     IDManual?: SortOrder
+    Directo?: SortOrder
   }
 
   export type dispositivosWhereUniqueInput = {
@@ -28440,6 +28504,7 @@ export namespace Prisma {
     IDSubsistema?: SortOrder
     IDTipoFamilia?: SortOrder
     IDFamilia?: SortOrder
+    IDFabricante?: SortOrder
     IDTipoDispositivo?: SortOrder
     IDGateway?: SortOrder
     IDControlador?: SortOrder
@@ -28485,6 +28550,7 @@ export namespace Prisma {
     user?: SortOrder
     password?: SortOrder
     IDManual?: SortOrder
+    Directo?: SortOrder
     _count?: dispositivosCountOrderByAggregateInput
     _avg?: dispositivosAvgOrderByAggregateInput
     _max?: dispositivosMaxOrderByAggregateInput
@@ -28500,6 +28566,7 @@ export namespace Prisma {
     IDSubsistema?: IntNullableWithAggregatesFilter | number | null
     IDTipoFamilia?: IntNullableWithAggregatesFilter | number | null
     IDFamilia?: IntNullableWithAggregatesFilter | number | null
+    IDFabricante?: IntNullableWithAggregatesFilter | number | null
     IDTipoDispositivo?: IntNullableWithAggregatesFilter | number | null
     IDGateway?: IntNullableWithAggregatesFilter | number | null
     IDControlador?: IntNullableWithAggregatesFilter | number | null
@@ -28544,7 +28611,8 @@ export namespace Prisma {
     Serial?: StringNullableWithAggregatesFilter | string | null
     user?: StringNullableWithAggregatesFilter | string | null
     password?: StringNullableWithAggregatesFilter | string | null
-    IDManual?: StringNullableWithAggregatesFilter | string | null
+    IDManual?: IntNullableWithAggregatesFilter | number | null
+    Directo?: IntNullableWithAggregatesFilter | number | null
   }
 
   export type gatewayWhereInput = {
@@ -28590,6 +28658,8 @@ export namespace Prisma {
     user?: StringNullableFilter | string | null
     password?: StringNullableFilter | string | null
     Serial?: StringNullableFilter | string | null
+    IDManual?: IntNullableFilter | number | null
+    IDZona?: IntNullableFilter | number | null
   }
 
   export type gatewayOrderByWithRelationInput = {
@@ -28632,6 +28702,8 @@ export namespace Prisma {
     user?: SortOrder
     password?: SortOrder
     Serial?: SortOrder
+    IDManual?: SortOrder
+    IDZona?: SortOrder
   }
 
   export type gatewayWhereUniqueInput = {
@@ -28678,6 +28750,8 @@ export namespace Prisma {
     user?: SortOrder
     password?: SortOrder
     Serial?: SortOrder
+    IDManual?: SortOrder
+    IDZona?: SortOrder
     _count?: gatewayCountOrderByAggregateInput
     _avg?: gatewayAvgOrderByAggregateInput
     _max?: gatewayMaxOrderByAggregateInput
@@ -28728,6 +28802,8 @@ export namespace Prisma {
     user?: StringNullableWithAggregatesFilter | string | null
     password?: StringNullableWithAggregatesFilter | string | null
     Serial?: StringNullableWithAggregatesFilter | string | null
+    IDManual?: IntNullableWithAggregatesFilter | number | null
+    IDZona?: IntNullableWithAggregatesFilter | number | null
   }
 
   export type gruposdispositivosWhereInput = {
@@ -30060,6 +30136,7 @@ export namespace Prisma {
     IDSubsistema?: number | null
     IDTipoFamilia?: number | null
     IDFamilia?: number | null
+    IDFabricante?: number | null
     IDTipoDispositivo?: number | null
     IDGateway?: number | null
     IDControlador?: number | null
@@ -30104,7 +30181,8 @@ export namespace Prisma {
     Serial?: string | null
     user?: string | null
     password?: string | null
-    IDManual?: string | null
+    IDManual?: number | null
+    Directo?: number | null
   }
 
   export type dispositivosUncheckedCreateInput = {
@@ -30112,6 +30190,7 @@ export namespace Prisma {
     IDSubsistema?: number | null
     IDTipoFamilia?: number | null
     IDFamilia?: number | null
+    IDFabricante?: number | null
     IDTipoDispositivo?: number | null
     IDGateway?: number | null
     IDControlador?: number | null
@@ -30156,13 +30235,15 @@ export namespace Prisma {
     Serial?: string | null
     user?: string | null
     password?: string | null
-    IDManual?: string | null
+    IDManual?: number | null
+    Directo?: number | null
   }
 
   export type dispositivosUpdateInput = {
     IDSubsistema?: NullableIntFieldUpdateOperationsInput | number | null
     IDTipoFamilia?: NullableIntFieldUpdateOperationsInput | number | null
     IDFamilia?: NullableIntFieldUpdateOperationsInput | number | null
+    IDFabricante?: NullableIntFieldUpdateOperationsInput | number | null
     IDTipoDispositivo?: NullableIntFieldUpdateOperationsInput | number | null
     IDGateway?: NullableIntFieldUpdateOperationsInput | number | null
     IDControlador?: NullableIntFieldUpdateOperationsInput | number | null
@@ -30207,7 +30288,8 @@ export namespace Prisma {
     Serial?: NullableStringFieldUpdateOperationsInput | string | null
     user?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    IDManual?: NullableStringFieldUpdateOperationsInput | string | null
+    IDManual?: NullableIntFieldUpdateOperationsInput | number | null
+    Directo?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type dispositivosUncheckedUpdateInput = {
@@ -30215,6 +30297,7 @@ export namespace Prisma {
     IDSubsistema?: NullableIntFieldUpdateOperationsInput | number | null
     IDTipoFamilia?: NullableIntFieldUpdateOperationsInput | number | null
     IDFamilia?: NullableIntFieldUpdateOperationsInput | number | null
+    IDFabricante?: NullableIntFieldUpdateOperationsInput | number | null
     IDTipoDispositivo?: NullableIntFieldUpdateOperationsInput | number | null
     IDGateway?: NullableIntFieldUpdateOperationsInput | number | null
     IDControlador?: NullableIntFieldUpdateOperationsInput | number | null
@@ -30259,7 +30342,8 @@ export namespace Prisma {
     Serial?: NullableStringFieldUpdateOperationsInput | string | null
     user?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    IDManual?: NullableStringFieldUpdateOperationsInput | string | null
+    IDManual?: NullableIntFieldUpdateOperationsInput | number | null
+    Directo?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type dispositivosCreateManyInput = {
@@ -30267,6 +30351,7 @@ export namespace Prisma {
     IDSubsistema?: number | null
     IDTipoFamilia?: number | null
     IDFamilia?: number | null
+    IDFabricante?: number | null
     IDTipoDispositivo?: number | null
     IDGateway?: number | null
     IDControlador?: number | null
@@ -30311,13 +30396,15 @@ export namespace Prisma {
     Serial?: string | null
     user?: string | null
     password?: string | null
-    IDManual?: string | null
+    IDManual?: number | null
+    Directo?: number | null
   }
 
   export type dispositivosUpdateManyMutationInput = {
     IDSubsistema?: NullableIntFieldUpdateOperationsInput | number | null
     IDTipoFamilia?: NullableIntFieldUpdateOperationsInput | number | null
     IDFamilia?: NullableIntFieldUpdateOperationsInput | number | null
+    IDFabricante?: NullableIntFieldUpdateOperationsInput | number | null
     IDTipoDispositivo?: NullableIntFieldUpdateOperationsInput | number | null
     IDGateway?: NullableIntFieldUpdateOperationsInput | number | null
     IDControlador?: NullableIntFieldUpdateOperationsInput | number | null
@@ -30362,7 +30449,8 @@ export namespace Prisma {
     Serial?: NullableStringFieldUpdateOperationsInput | string | null
     user?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    IDManual?: NullableStringFieldUpdateOperationsInput | string | null
+    IDManual?: NullableIntFieldUpdateOperationsInput | number | null
+    Directo?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type dispositivosUncheckedUpdateManyInput = {
@@ -30370,6 +30458,7 @@ export namespace Prisma {
     IDSubsistema?: NullableIntFieldUpdateOperationsInput | number | null
     IDTipoFamilia?: NullableIntFieldUpdateOperationsInput | number | null
     IDFamilia?: NullableIntFieldUpdateOperationsInput | number | null
+    IDFabricante?: NullableIntFieldUpdateOperationsInput | number | null
     IDTipoDispositivo?: NullableIntFieldUpdateOperationsInput | number | null
     IDGateway?: NullableIntFieldUpdateOperationsInput | number | null
     IDControlador?: NullableIntFieldUpdateOperationsInput | number | null
@@ -30414,7 +30503,8 @@ export namespace Prisma {
     Serial?: NullableStringFieldUpdateOperationsInput | string | null
     user?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    IDManual?: NullableStringFieldUpdateOperationsInput | string | null
+    IDManual?: NullableIntFieldUpdateOperationsInput | number | null
+    Directo?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type gatewayCreateInput = {
@@ -30456,6 +30546,8 @@ export namespace Prisma {
     user?: string | null
     password?: string | null
     Serial?: string | null
+    IDManual?: number | null
+    IDZona?: number | null
   }
 
   export type gatewayUncheckedCreateInput = {
@@ -30498,6 +30590,8 @@ export namespace Prisma {
     user?: string | null
     password?: string | null
     Serial?: string | null
+    IDManual?: number | null
+    IDZona?: number | null
   }
 
   export type gatewayUpdateInput = {
@@ -30539,6 +30633,8 @@ export namespace Prisma {
     user?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     Serial?: NullableStringFieldUpdateOperationsInput | string | null
+    IDManual?: NullableIntFieldUpdateOperationsInput | number | null
+    IDZona?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type gatewayUncheckedUpdateInput = {
@@ -30581,6 +30677,8 @@ export namespace Prisma {
     user?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     Serial?: NullableStringFieldUpdateOperationsInput | string | null
+    IDManual?: NullableIntFieldUpdateOperationsInput | number | null
+    IDZona?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type gatewayCreateManyInput = {
@@ -30623,6 +30721,8 @@ export namespace Prisma {
     user?: string | null
     password?: string | null
     Serial?: string | null
+    IDManual?: number | null
+    IDZona?: number | null
   }
 
   export type gatewayUpdateManyMutationInput = {
@@ -30664,6 +30764,8 @@ export namespace Prisma {
     user?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     Serial?: NullableStringFieldUpdateOperationsInput | string | null
+    IDManual?: NullableIntFieldUpdateOperationsInput | number | null
+    IDZona?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type gatewayUncheckedUpdateManyInput = {
@@ -30706,6 +30808,8 @@ export namespace Prisma {
     user?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     Serial?: NullableStringFieldUpdateOperationsInput | string | null
+    IDManual?: NullableIntFieldUpdateOperationsInput | number | null
+    IDZona?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type gruposdispositivosCreateInput = {
@@ -32243,6 +32347,7 @@ export namespace Prisma {
     IDSubsistema?: SortOrder
     IDTipoFamilia?: SortOrder
     IDFamilia?: SortOrder
+    IDFabricante?: SortOrder
     IDTipoDispositivo?: SortOrder
     IDGateway?: SortOrder
     IDControlador?: SortOrder
@@ -32288,6 +32393,7 @@ export namespace Prisma {
     user?: SortOrder
     password?: SortOrder
     IDManual?: SortOrder
+    Directo?: SortOrder
   }
 
   export type dispositivosAvgOrderByAggregateInput = {
@@ -32295,6 +32401,7 @@ export namespace Prisma {
     IDSubsistema?: SortOrder
     IDTipoFamilia?: SortOrder
     IDFamilia?: SortOrder
+    IDFabricante?: SortOrder
     IDTipoDispositivo?: SortOrder
     IDGateway?: SortOrder
     IDControlador?: SortOrder
@@ -32313,6 +32420,8 @@ export namespace Prisma {
     PuertoMantenimiento?: SortOrder
     PuertoConexionSC?: SortOrder
     PuertoConexionCC?: SortOrder
+    IDManual?: SortOrder
+    Directo?: SortOrder
   }
 
   export type dispositivosMaxOrderByAggregateInput = {
@@ -32320,6 +32429,7 @@ export namespace Prisma {
     IDSubsistema?: SortOrder
     IDTipoFamilia?: SortOrder
     IDFamilia?: SortOrder
+    IDFabricante?: SortOrder
     IDTipoDispositivo?: SortOrder
     IDGateway?: SortOrder
     IDControlador?: SortOrder
@@ -32365,6 +32475,7 @@ export namespace Prisma {
     user?: SortOrder
     password?: SortOrder
     IDManual?: SortOrder
+    Directo?: SortOrder
   }
 
   export type dispositivosMinOrderByAggregateInput = {
@@ -32372,6 +32483,7 @@ export namespace Prisma {
     IDSubsistema?: SortOrder
     IDTipoFamilia?: SortOrder
     IDFamilia?: SortOrder
+    IDFabricante?: SortOrder
     IDTipoDispositivo?: SortOrder
     IDGateway?: SortOrder
     IDControlador?: SortOrder
@@ -32417,6 +32529,7 @@ export namespace Prisma {
     user?: SortOrder
     password?: SortOrder
     IDManual?: SortOrder
+    Directo?: SortOrder
   }
 
   export type dispositivosSumOrderByAggregateInput = {
@@ -32424,6 +32537,7 @@ export namespace Prisma {
     IDSubsistema?: SortOrder
     IDTipoFamilia?: SortOrder
     IDFamilia?: SortOrder
+    IDFabricante?: SortOrder
     IDTipoDispositivo?: SortOrder
     IDGateway?: SortOrder
     IDControlador?: SortOrder
@@ -32442,6 +32556,8 @@ export namespace Prisma {
     PuertoMantenimiento?: SortOrder
     PuertoConexionSC?: SortOrder
     PuertoConexionCC?: SortOrder
+    IDManual?: SortOrder
+    Directo?: SortOrder
   }
 
   export type BytesNullableFilter = {
@@ -32491,6 +32607,8 @@ export namespace Prisma {
     user?: SortOrder
     password?: SortOrder
     Serial?: SortOrder
+    IDManual?: SortOrder
+    IDZona?: SortOrder
   }
 
   export type gatewayAvgOrderByAggregateInput = {
@@ -32508,6 +32626,8 @@ export namespace Prisma {
     PuertoMantenimiento?: SortOrder
     PuertoConexionSC?: SortOrder
     PuertoConexionCC?: SortOrder
+    IDManual?: SortOrder
+    IDZona?: SortOrder
   }
 
   export type gatewayMaxOrderByAggregateInput = {
@@ -32550,6 +32670,8 @@ export namespace Prisma {
     user?: SortOrder
     password?: SortOrder
     Serial?: SortOrder
+    IDManual?: SortOrder
+    IDZona?: SortOrder
   }
 
   export type gatewayMinOrderByAggregateInput = {
@@ -32592,6 +32714,8 @@ export namespace Prisma {
     user?: SortOrder
     password?: SortOrder
     Serial?: SortOrder
+    IDManual?: SortOrder
+    IDZona?: SortOrder
   }
 
   export type gatewaySumOrderByAggregateInput = {
@@ -32609,6 +32733,8 @@ export namespace Prisma {
     PuertoMantenimiento?: SortOrder
     PuertoConexionSC?: SortOrder
     PuertoConexionCC?: SortOrder
+    IDManual?: SortOrder
+    IDZona?: SortOrder
   }
 
   export type BytesNullableWithAggregatesFilter = {

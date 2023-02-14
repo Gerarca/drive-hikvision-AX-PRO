@@ -14,11 +14,11 @@ exports.Prisma = Prisma
 
 /**
  * Prisma Client JS version: 4.7.1
- * Query Engine version: 272861e07ab64f234d3ffc4094e32bd61775599c
+ * Query Engine version: ca7fcef713137fa11029d519a9780db130cca91d
  */
 Prisma.prismaVersion = {
   client: "4.7.1",
-  engine: "272861e07ab64f234d3ffc4094e32bd61775599c"
+  engine: "ca7fcef713137fa11029d519a9780db130cca91d"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -126,6 +126,7 @@ exports.Prisma.DispositivosScalarFieldEnum = makeEnum({
   IDSubsistema: 'IDSubsistema',
   IDTipoFamilia: 'IDTipoFamilia',
   IDFamilia: 'IDFamilia',
+  IDFabricante: 'IDFabricante',
   IDTipoDispositivo: 'IDTipoDispositivo',
   IDGateway: 'IDGateway',
   IDControlador: 'IDControlador',
@@ -170,7 +171,8 @@ exports.Prisma.DispositivosScalarFieldEnum = makeEnum({
   Serial: 'Serial',
   user: 'user',
   password: 'password',
-  IDManual: 'IDManual'
+  IDManual: 'IDManual',
+  Directo: 'Directo'
 });
 
 exports.Prisma.GatewayScalarFieldEnum = makeEnum({
@@ -212,7 +214,9 @@ exports.Prisma.GatewayScalarFieldEnum = makeEnum({
   DireccionPublica2: 'DireccionPublica2',
   user: 'user',
   password: 'password',
-  Serial: 'Serial'
+  Serial: 'Serial',
+  IDManual: 'IDManual',
+  IDZona: 'IDZona'
 });
 
 exports.Prisma.GruposdispositivosScalarFieldEnum = makeEnum({

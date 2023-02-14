@@ -21,7 +21,7 @@ exports.getDispositivo = async (req = request, res = response) => {
     var id = req;
     const result = await DBnetsocsx.dispositivos.findMany({
         where:{
-            Serial: id
+          IDTipoFamilia: id
         }
     });
 
@@ -32,7 +32,17 @@ exports.getDispositivo = async (req = request, res = response) => {
     }
 };
   
+//get info device for id
+exports.getInfoDevice = async (req = request, res = response) => {     
+  var id = req;
+  const result = await DBnetsocsx.dispositivos.findMany({ 
+      where:{
+        IDTipoFamilia: id
+      } 
+  });
 
+  return await result;
+};
 
 exports.deleteDevice = async (req = request, res = response) => {
   const id  = req;

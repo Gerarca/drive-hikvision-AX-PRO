@@ -1,10 +1,10 @@
 const httpClient = require('urllib');
 
-const petition = async ({url, method = "GET", contentype, body}) => { 
+const petition = async ({infoDevice, url, method = "GET", contentype, body}) => { 
 
-    const URL =  process.env.APP_GATEWAY_URL + url;
-    const USER = process.env.APP_GATEWAY_USER;
-    const PASS = process.env.APP_GATEWAY_PASSWORD;
+    const URL =  "http://"+ infoDevice.DireccionAIPV4 +":"+ infoDevice.PuertoNoSSL + url;
+    const USER = infoDevice.user;
+    const PASS = infoDevice.password;
 
     try
     {            
@@ -35,7 +35,7 @@ const petition = async ({url, method = "GET", contentype, body}) => {
     }
     catch (Exception)
     {
-        console.log("Exception: ", Exception);
+        console.log("Exception on isapiGatewayConnection.js: ", Exception);
     } 
 }
 

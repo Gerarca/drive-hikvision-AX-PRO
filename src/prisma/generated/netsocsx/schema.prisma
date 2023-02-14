@@ -46,6 +46,7 @@ model dispositivos {
   IDSubsistema        Int?      @db.UnsignedInt
   IDTipoFamilia       Int?      @db.UnsignedInt
   IDFamilia           Int?      @db.UnsignedInt
+  IDFabricante        Int?      @db.UnsignedInt
   IDTipoDispositivo   Int?      @db.UnsignedInt
   IDGateway           Int?      @db.UnsignedInt
   IDControlador       Int?
@@ -90,7 +91,8 @@ model dispositivos {
   Serial              String?   @db.VarChar(255)
   user                String?   @db.VarChar(255)
   password            String?   @db.VarChar(255)
-  IDManual            String?   @db.VarChar(45)
+  IDManual            Int?
+  Directo             Int?      @db.TinyInt
 }
 
 model gateway {
@@ -124,7 +126,7 @@ model gateway {
   Socket                 String?   @db.MediumText
   API                    String?   @db.MediumText
   Sincroniza             String?   @db.VarChar(2)
-  DireccionAIPV4         String?   @db.VarChar(15)
+  DireccionAIPV4         String?   @db.VarChar(255)
   DireccionBIPv4         String?   @db.VarChar(15)
   DireccionAIPV6         String?   @db.VarChar(40)
   DireccionBIPv6         String?   @db.VarChar(40)
@@ -133,6 +135,8 @@ model gateway {
   user                   String?   @db.VarChar(255)
   password               String?   @db.VarChar(255)
   Serial                 String?   @db.VarChar(255)
+  IDManual               Int?
+  IDZona                 Int?
 }
 
 model gruposdispositivos {

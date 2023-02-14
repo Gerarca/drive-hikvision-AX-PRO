@@ -1,11 +1,11 @@
 const httpClient = require('urllib');
 var convert = require('xml-js');
 
-const peticion = async ({url, method = "GET", contentype, body, formato = 'JSON' }) => { 
+const peticion = async ({ infoDevice, url, method = "GET", contentype, body, formato = 'JSON' }) => { 
 
-    const URL =  process.env.APP_GATEWAY_URL + url;
-    const USER = process.env.APP_GATEWAY_USER;
-    const PASS = process.env.APP_GATEWAY_PASSWORD;
+    const URL =  "http://"+ infoDevice.DireccionAIPV4 +":"+ infoDevice.PuertoNoSSL + url;
+    const USER = infoDevice.user;
+    const PASS = infoDevice.password;
 
     if( formato === 'JSON' ){
         try
@@ -39,7 +39,7 @@ const peticion = async ({url, method = "GET", contentype, body, formato = 'JSON'
         }
         catch (Exception)
         {
-            console.log("Exception JSON: ", Exception);
+            console.log("Exception JSON isapiConnection.js: ", Exception);
         } 
     }else{ 
         //XML
@@ -69,7 +69,7 @@ const peticion = async ({url, method = "GET", contentype, body, formato = 'JSON'
         }
         catch (Exception)
         {
-            console.log("Exception XML: ", Exception);
+            console.log("Exception XML isapiConnection.js: ", Exception);
         }   
     }
 }
