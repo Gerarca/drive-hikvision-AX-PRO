@@ -30,25 +30,26 @@ socket.onopen = (s) => {
 };
 
 socket.onmessage = async (msg) => {
-    console.log("Driver Alarma: ", msg.data);
-    const data =  JSON.parse(msg.data);
+    //console.log("Driver Alarma: ", msg.data);
+    const dataJson =  JSON.parse(msg.data);
     var id="";
-    if( data.key === "ConfigAlarmaAXPRO" ){
-        for(let i=0; i<data.data[0].devices.length; i++){ 
-            id = data.data[0].devices[i];
-    
+    if( dataJson.key === "ConfigAlarmaAXPRO" ){
+        var data = dataJson.data[0];
+        if(data.command === "configOperateAlarma"){ 
+            configDevice(data);
+        }else{
+            id = data.devices[0];    
             if( await getDispositivo(id) ){
                 if( await searchAlarmsGateway(id) ){  
-                    //console.log("Id Device Success!");
-                    configDevice(data.data[0], id);
+                    configDevice(data, id);
                 }else{
-                    console.log(data.data[0].set.error, " on gateway");
+                    console.log(data.set.error, " on gateway");
                 }      
                     
             }else{
-                console.log(data.data[0].set.error, " on database");
+                console.log(data.set.error, " on database");
             } 
-        } 
+        }        
     }   
 };
 
@@ -59,17 +60,15 @@ exports.sendMessageToServer = (msg)=>{
     var id="";
     
     if( data.key === "ConfigAlarmaAXPRO" ){
-        for(let i=0; i<data.data[0].devices.length; i++){ 
-            id = data.data[0].devices[i];
-            socket.send(
-                JSON.stringify({
-                key: "directCamera",
-                to: "alarmHokvision",
-                from : "configModule",
-                data : configGetters(id)
-                })
-            )
-        } 
+        id = data.data.devices[0];
+        socket.send(
+            JSON.stringify({
+            key: "directCamera",
+            to: "alarmHokvision",
+            from : "configModule",
+            data : configGetters(id)
+            })
+        )
     }
   }
 

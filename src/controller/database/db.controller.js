@@ -18,10 +18,10 @@ exports.getDispositivos = async (req = request, res = response) => {
 };
 
 exports.getDispositivo = async (req = request, res = response) => { 
-    var id = req;
+    var id = parseInt(req);
     const result = await DBnetsocsx.dispositivos.findMany({
         where:{
-          IDTipoFamilia: id
+          IDTipoDispositivo: id
         }
     });
 
@@ -34,10 +34,10 @@ exports.getDispositivo = async (req = request, res = response) => {
   
 //get info device for id
 exports.getInfoDevice = async (req = request, res = response) => {     
-  var id = req;
+  var id = parseInt(req);
   const result = await DBnetsocsx.dispositivos.findMany({ 
       where:{
-        IDTipoFamilia: id
+        IDTipoDispositivo: id
       } 
   });
 
@@ -45,42 +45,57 @@ exports.getInfoDevice = async (req = request, res = response) => {
 };
 
 exports.deleteDevice = async (req = request, res = response) => {
-  const id  = req;
-  const device = await DBnetsocsx.dispositivos.delete({
-    where: {
-      Serial: id,
-    },
-  });
-  res.json({
-    ok: true,
-    res: dispositivoModel(device),
-  });
-};
+  try {
+    const id  = parseInt(req);
+    const device = await DBnetsocsx.dispositivos.delete({
+      where: {
+        IDDispositivo: id
+      }
+    });
+    return {
+      statuscode: "200",
+      statusString: `Device ${id} deleted :)`,
+      res: dispositivoModel(device),
+    };
+  } catch (error) {
+    console.log(`Device with id ${id} don't found`);
+  }
+}; 
 
 exports.postDevice = async (req = request, res = response) => {
-  const building = dispositivoModel(req.body);
-  const build = await DBnetsocsx.dispositivos.create({
-    data: building,
-  });
-  res.json({
-    ok: true,
-    res: dispositivoModel(build),
-  });
+  try {
+    const building = dispositivoModel(req.body);   
+    const build = await DBnetsocsx.dispositivos.create({
+      data: building,
+    });
+    return{
+      statuscode: "200",
+      statusString: "Device registred Successfully",
+      res: dispositivoModel(build),
+    }; 
+  } catch (error) {
+    console.log("Device not registered :(");
+  } 
 };
 
 exports.putDevice = async (req = request, res = response) => {
-  const  id  = req;
-  const building = dispositivoModel(req.body);
-
-  const build = await DBnetsocsx.dispositivos.update({
-    where: {
-        Serial: id,
-    },
-    data: building,
-  });
-
-  res.json({
-    ok: true,
-    res: dispositivoModel(build),
-  });
+  try {
+    const  id  = req.body.IDDispositivo;
+    const building = dispositivoModel(req.body);
+  
+    const build = await DBnetsocsx.dispositivos.update({
+      where: {
+        IDDispositivo: id,
+      },
+      data: building,
+    });
+  
+    return{
+      statuscode: "200",
+      statusString: "Device Update Successfully",
+      res: dispositivoModel(build),
+    };
+  } catch (error) {
+    console.log("Device not updated :(");
+  }
 };

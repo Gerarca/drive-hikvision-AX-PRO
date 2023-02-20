@@ -8,7 +8,7 @@ require('dotenv').config();
 
 // Intializations
 const app = express();
-//require("./socket/socket.client");
+require("./socket/socket.client");
 var http = require('http');//.Server(app);
 //var io = require('socket.io')(http);
 

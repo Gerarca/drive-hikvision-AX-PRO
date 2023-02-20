@@ -5,6 +5,7 @@ const { configDeviceAlarm } = require("../configDevice/configDeviceAlarm.control
 const { configEvents } = require("../configDevice/configEvents.controller");
 const { configSystem } = require("../configDevice/configSystem.controller");
 const { configMaintenance } = require("../configDevice/configMaintenance.controller");
+const { confiOperateAlarm } = require("../configDevice/configOperateAlarm.controller");
 const { infoDevice } = require("../../utils/functions/infoDevice.utils");
 
 exports.configDevice = async (config, id) => {
@@ -33,6 +34,9 @@ exports.configDevice = async (config, id) => {
             break;
         case "configSystem":
             configSystem(config, device);
+            break;
+        case "configOperateAlarma":
+            confiOperateAlarm(config);
             break;
     }
 }
